@@ -6,7 +6,7 @@ const path = require('path')
 const passport = require('passport')
 
 const PORT = process.env.PORT || 5000;
-const DATABASE_CONNECTION = process.env.MONGODB_URI || "mongodb+srv://PranavSheoran:MediFide82@cluster0.xaeii.mongodb.net/Patients?retryWrites=true&w=majority";
+const DATABASE_CONNECTION = process.env.MONGODB_URI;
 
 const app = express()
 
