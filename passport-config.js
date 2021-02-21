@@ -10,7 +10,7 @@ passport.deserializeUser((id, done) =>{
 });
 
 passport.use(new GoogleStrategy({
-    clientID: process.env.GOOGLE_CLIENT_ID || "82026042292-1qnu1a273ut1g3bpkvt7cqgi47b7feqj.apps.googleusercontent.com",
+    clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     callbackURL: "https://localhost:5000/google/callback"
   },
