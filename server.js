@@ -5,6 +5,9 @@ const mongoose = require('mongoose')
 const path = require('path')
 const passport = require('passport')
 
+const dotenv = require('dotenv');
+dotenv.config();
+
 const PORT = process.env.PORT || 5000;
 const DATABASE_CONNECTION = process.env.MONGODB_URI;
 
@@ -25,7 +28,7 @@ app.use(passport.session());
 require("./passport-config.js");
 
 app.get('/home', (req, res) =>{
-    res.sendFile(path.join(__dirname, 'index.html'))
+    res.sendFile(path.join(__dirname, 'patient.js'))
 })
 
 app.get('/google', passport.authenticate('google', {scope: ['profile', 'email']}))
