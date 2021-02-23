@@ -18,7 +18,9 @@ class Dashboard extends Component {
                 <div className="container mt-3">
                     <div className="row">
                         <div className="col-12 col-sm-6">
-                            <Appointment />
+                            <div className="col-11">
+                                <Appointment />
+                            </div>
                         </div>
                         <div className="col-12 col-sm-6">
                             <Emergency />
