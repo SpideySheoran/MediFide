@@ -1,27 +1,25 @@
 const express = require('express')
-const bodyParser = require('body-parser')
 const cors = require('cors')
 const mongoose = require('mongoose')
 const path = require('path')
 const passport = require('passport')
 
-const dotenv = require('dotenv');
-dotenv.config();
-
-const PORT = process.env.PORT || 5000;
-const DATABASE_CONNECTION = process.env.MONGODB_URI;
+require('dotenv').config();
 
 const app = express()
 
 app.use(cors({origin: true, credentials: true}));
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
+app.use(express.json());
 
-mongoose.set('useCreateIndex', true);
-mongoose.set('useUnifiedTopology', true);
-mongoose.set('useFindAndModify', false);
-console.log(DATABASE_CONNECTION)
-mongoose.connect(DATABASE_CONNECTION,{useNewUrlParser: true});
+const PORT = process.env.PORT || 5000;
+const DATABASE_CONNECTION = process.env.MONGODB_URI;
+
+mongoose.connect(DATABASE_CONNECTION,{useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true});
+
+const connection = mongoose.connection;
+connection.once('open', ()=>{
+    console.log("MongoDB databse connection established successfully");
+})
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -38,13 +36,14 @@ app.get('/google/callback', passport.authenticate('google', {failureRedirect: '/
     res.redirect('/home')
 })
 
-app.get('*', (req, res) =>{
-    res.send('Hello New User')
-})
-
 app.get('/register', (req, res) =>{
     const body = req.body
 })
+
+const usersRouter = require('./routes/Patients');
+const doctorsRouter = require('./routes/Doctors');
+app.use('/users', usersRouter);
+app.use('/doctors', doctorsRouter);
 
 app.listen(PORT, () =>{
     console.log(`Server is listening on port ${PORT}`)
