@@ -27,6 +27,8 @@ export default class Login extends Component {
 				{/*<LoginForm />
 				<SignUp />*/}
 				<div className="container">
+					<br></br>
+				<h1>Login</h1>
 					
 						<a href="http://localhost:5000/google" class="button">
 							<div>
