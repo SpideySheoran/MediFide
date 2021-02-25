@@ -1,58 +1,52 @@
 import React, { Component } from "react"
 import { Button, Form, FormGroup, Label, Input } from "reactstrap"
+import axios from "axios";
 
 export default class Login extends Component {
-	state = {
-		user: {},
-		error: null,
-		authenticated: false,
-	}
+	
 
 	componentDidMount() {
 		console.log("hi")
 		// Fetch does not send cookies. So you should add credentials: 'include'
-		fetch("http://localhost:5000/login/success", {
-			method: "GET",
-			credentials: "include",
-			headers: {
-				Accept: "application/json",
-				"Content-Type": "application/json",
-				"Access-Control-Allow-Credentials": true,
-			},
-		})
-			.then((response) => {
-				console.log(response)
-				if (response.status === 200) return response.json()
-				throw new Error("failed to authenticate user")
-			})
-			.then((responseJson) => {
-				this.setState({
-					authenticated: true,
-					user: responseJson.user,
-				})
-			})
-			.catch((error) => {
-				this.setState({
-					authenticated: false,
-					error: "Failed to authenticate user",
-				})
-			})
+		// fetch("http://localhost:5000/login/success", {
+		// 	method: "GET",
+		// 	credentials: "include",
+		// 	headers: {
+		// 		Accept: "application/json",
+		// 		"Content-Type": "application/json",
+		// 		"Access-Control-Allow-Credentials": true,
+		// 	},
+		// })
+		// 	.then((response) => {
+		// 		console.log(response)
+		// 		if (response.status === 200) return response.json()
+		// 		throw new Error("failed to authenticate user")
+		// 	})
+		// 	.then((responseJson) => {
+		// 		this.setState({
+		// 			authenticated: true,
+		// 			user: responseJson.user,
+		// 		})
+		// 	})
+		// 	.catch((error) => {
+		// 		this.setState({
+		// 			authenticated: false,
+		// 			error: "Failed to authenticate user",
+		// 		})
+		// 	})
 	}
 	_handleSignInClick = () => {
 		// Authenticate using via passport api in the backend
 		// Open Twitter login page
 		// Upon successful login, a cookie session will be stored in the client
-		window.open("http://localhost:5000/google", "_self")
+		axios.get("http://localhost:5000/google");
 	}
 	render() {
-		const { authenticated } = this.state
 
 		return (
 			<div className="container">
-				{authenticated ? (
-					<h1>Hi</h1>
-				) : (
-					<button onClick={this._handleSignInClick} class="button">
+				
+					<a href="http://localhost:5000/google" class="button">
 						<div>
 							<span class="svgIcon t-popup-svg">
 								<svg
@@ -83,8 +77,8 @@ export default class Login extends Component {
 							</span>
 							<span class="button-label">Sign in with Google</span>
 						</div>
-					</button>
-				)}
+					</a>
+				
 			</div>
 		)
 	}

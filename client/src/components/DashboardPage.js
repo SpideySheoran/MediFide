@@ -14,7 +14,6 @@ class Dashboard extends Component {
 
         return (
           <React.Fragment>
-                <Navbarr />
                 <div className="container mt-3">
                     <div className="row">
                         <div className="col-12 col-sm-6">
