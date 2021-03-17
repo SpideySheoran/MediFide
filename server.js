@@ -36,7 +36,7 @@ app.use(function (req, res, next) {
 });
 app.use(express.json());
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 const DATABASE_CONNECTION = process.env.MONGODB_URI;
 
 mongoose.connect(DATABASE_CONNECTION, {
