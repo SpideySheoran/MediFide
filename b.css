@@ -1,0 +1,55 @@
+::Selection{
+    background-color: #BCDDEB;
+    }
+    
+    label {
+    float:left;
+    width:150px;
+    text-align:right;
+    margin: 6px 6px 0 0;
+    font-family:segoe ui;
+    font-size:16px;
+    }
+    
+    input {
+    font-size:14px;
+    font-family:segoe ui light;
+    padding: 4px;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    }
+    
+    input:hover {
+    outline:none;
+    box-shadow: 0px 0px 5px #617584;
+    }
+    
+    input:required {
+    Border-color: #6383FF;
+    }
+    
+    input:valid {
+    Border-color: #FFFFFF;
+    }
+    
+    input:invalid {
+    border-color:#6383FF
+    }
+    
+    input:focus {
+    outline:none;
+    box-shadow: 0px 0px 5px #617584;
+    background-color: #FFFFFF
+    }
+
+    .form {
+		margin: 0 auto;
+		width: 330px;
+	}
+
+	.form input{
+		display: inline-block;
+		text-align: left;
+		float: right;
+	}
+    
