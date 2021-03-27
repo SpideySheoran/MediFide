@@ -16,7 +16,7 @@ class Appointment extends Component {
           <React.Fragment>
                 
                         <Card>
-                            <CardImg top width="100%" src="/assets/images/Current.png" alt="Your Bookings" />
+                            <CardImg top width="100%" src="/assets/images/Current.jpg" alt="Your Bookings" />
                             <CardBody>
                             <CardTitle tag="h3">Current Appointment</CardTitle>
                             <CardText>...(Date, Time, Day, Doctors Name from Backend)...</CardText>

@@ -2,10 +2,10 @@ import React from 'react';
 
 function Footer(props) {
     return(
-    <div className="footer mt-5">
+    <div className="w-100 footer mt-5" >
         <div className="container">
             <div className="row justify-content-center">             
-                <div className="col-4 offset-1 col-sm-2">
+                {/*<div className="col-4 offset-1 col-sm-2">
                     <h5>Links</h5>
                     <ul className="list-unstyled">
                         <li><a href="#">Home</a></li>
@@ -25,10 +25,10 @@ function Footer(props) {
 		              <i className="fa fa-envelope fa-lg"></i>: <a href="mailto:confusion@food.net">
                          medifide@hospital.com</a>
                     </address>
-                </div>
+                </div>*/}
                 
             </div>
-            <div className="row justify-content-center">             
+            <div className="row justify-content-center ">             
                 <div className="col-auto">
                     <p>© Copyright 2018 Medifide</p>
                 </div>
