@@ -27,7 +27,7 @@ class DocProfiles extends Component {
                                         <CardBody>
                                         <CardTitle tag="h3">Dr. Suresh Rana</CardTitle>
                                         <CardText>...(Date, Time, Day, Doctors Name from Backend)...</CardText>
-                                        <a href="./Doc1"><Button className="font-weight-bold" color="warning" size="lg" block>Book Appointment</Button></a>
+                                        <a href="./Doc1"><Button className="font-weight-bold" color="info" size="lg" block>Book Appointment</Button></a>
                                         </CardBody>
                                     </div>
                                 </div>
@@ -42,7 +42,7 @@ class DocProfiles extends Component {
                                         <CardBody>
                                         <CardTitle tag="h3">Dr. Reshma Khan</CardTitle>
                                         <CardText>...(Date, Time, Day, Doctors Name from Backend)...</CardText>
-                                        <a href="./Doc2"><Button className="font-weight-bold" color="warning" size="lg" block>Book Appointment</Button></a>
+                                        <a href="./Doc2"><Button className="font-weight-bold" color="info" size="lg" block>Book Appointment</Button></a>
                                         </CardBody>
                                     </div>
                                     <div className="col-12 col-sm-6">
@@ -63,7 +63,7 @@ class DocProfiles extends Component {
                                         <CardBody>
                                         <CardTitle tag="h3">Dr. Harvinder Singh</CardTitle>
                                         <CardText>...(Date, Time, Day, Doctors Name from Backend)...</CardText>
-                                        <a href="./Doc3"><Button className="font-weight-bold" color="warning" size="lg" block>Book Appointment</Button></a>
+                                        <a href="./Doc3"><Button className="font-weight-bold" color="info" size="lg" block>Book Appointment</Button></a>
                                         </CardBody>
                                     </div>
                                 </div>
