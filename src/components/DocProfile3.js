@@ -25,26 +25,31 @@ class Doc3 extends Component {
                         <div className="col-12 col-sm-12">
                             
                                 <div className="row">
+                                    <h2>Book Your Appointment With</h2>
                                     <div className="col-12 col-sm-12">
-                                        <img top width="50%" src="/assets/images/3.jpeg" class="img-rounded" alt="Doc1" />
+                                        <img top width="30%" src="/assets/images/3.jpg" class="img-rounded" alt="Doc1" />
                                     </div>
                                     <div className="col-12 col-sm-12 ">
                                         
                                         <h3>Dr. Harvinder Singh</h3>
-                                        <h5>...(Date, Time, Day, Doctors Name from Backend)...</h5>
-                                        
+                                        <h5>M/B.B.S. MD (Child Specialist)</h5>
+                                        <h5></h5>
+                                        <h5></h5>
+                                        <h4>
+                                            From CMC Ludhiana 
+                                        </h4>
                                     </div>
                                 </div>
                                 
                         </div>
                     </div>
-                    <div className="row">
+                    <div className="row mt-5">
                         <div className="col-12">
                             <h3>Select your desired Date</h3>
                             
                                 <div class="container-fluid">
                                     <div class="row">
-                                        <div class="col-md-6 col-sm-6 col-xs-12 mt-5">
+                                        <div class="col-md-6 col-sm-6 col-xs-12 mt-3">
                                             <form class="form-horizontal" method="post">
                                             <div class="form-group ">
                                                 <label class="control-label col-sm-2 requiredField" for="date">
