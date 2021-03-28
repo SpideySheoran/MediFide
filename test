@@ -1,0 +1,24 @@
+
+	if ({"appointements.date": date})
+	{
+		update = {
+			$push: {"slots": {"slot": slot}}
+		}
+	}
+	else
+	{
+		update = {$push: {"appointments":
+			{
+				"date": date,
+				"slots": {"slot": slot}
+		}}}
+	}
+
+	User.findByIdAndUpdate(req.params.id, update, (err, doc) => {
+		if(err){
+			res.send({status:false, message:"Error: not updated"});
+		}
+		else {
+			res.send({status:true, message:"Success: Updated"});	
+		}
+	});
