@@ -2,7 +2,7 @@ import React from 'react';
 
 function Footer(props) {
     return(
-    <div className="footer mt-5">
+    <div className="w-100 footer mt-5" >
         <div className="container">
             <div className="row justify-content-center">             
                 {/*<div className="col-4 offset-1 col-sm-2">
@@ -28,7 +28,7 @@ function Footer(props) {
                 </div>*/}
                 
             </div>
-            <div className="row justify-content-center">             
+            <div className="row justify-content-center ">             
                 <div className="col-auto">
                     <p>© Copyright 2018 Medifide</p>
                 </div>

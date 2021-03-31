@@ -5,16 +5,53 @@ const PatientSchema = new Schema(
 	{
 		name: {
 			type: String,
-			required: true,
+		},
+		height: {
+			type: String,
+		},
+		weight: {
+			type: String,
 		},
 		email: {
 			type: String,
-			required: true,
 			unique: true,
+		},
+		number: {
+			type: String,
+		},
+		anumber: {
+			type: String,
+		},
+		address1: {
+			type: String,
+		},
+		address2: {
+			type: String,
 		},
 		photo: {
 			type: String,
 		},
+		appointment: {
+			doctor: {
+				type: String,
+			},
+			time: {
+				type: String,
+			},
+			date: {
+				type: String,
+			}
+		},
+		city: {
+			type:String
+		},
+		state: {
+			type:String,
+		},
+		zip: {
+			type:String,
+		}
+
 	},
 	{
 		timestamps: {
@@ -22,6 +59,7 @@ const PatientSchema = new Schema(
 			updatedAt: "updated_at",
 		},
 	}
+		
 )
 
 const Patient = mongoose.model("Patient", PatientSchema)

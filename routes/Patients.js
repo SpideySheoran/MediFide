@@ -7,15 +7,35 @@ router.route("/").get((req, res) => {
 		.catch((err) => res.status(400).json("Error: " + err))
 })
 
-router.route("/add").post((req, res) => {
-	const username = req.body.username
+router.route("/update").post((req, res) => {
+	console.log("hi",req.body);
+	User.findOneAndUpdate({ email: req.body.email }, req.body, (err, data)=>{
+		if (err) {
+			console.log(err);
+		}
+		else
+			console.log(data);
+		
+		return res.json(data);
+	});
+})
 
-	const newUser = new User({ username })
+router.route("/patient/:emailid").get((req, res) => {
+	User.findOne({ email: req.params.emailid }, (err, doc) => { 
+		return res.json(doc);
+	})
+})
 
-	newUser
-		.save()
-		.then(() => res.json("User added!"))
-		.catch((err) => res.status(400).json("Error: " + err))
+router.route("/book").post((req, res) => {
+	User.findOneAndUpdate({ email: req.body.email }, req.body, (err, data)=>{
+		if (err) {
+			console.log(err);
+		}
+		else
+			console.log(data);
+		
+		return res.json(data);
+	});
 })
 
 module.exports = router

@@ -6,6 +6,12 @@ import SignUp from "./components/SignUpPage"
 import Dashboard from "./components/DashboardPage"
 import "./App.css"
 import axios from "axios";
+import DocProfiles from "./components/DocProfilesComponent"
+import Doc1 from "./components/DocProfile1.js"
+import Doc2 from "./components/DocProfile2.js"
+import Doc3 from "./components/DocProfile3.js"
+import UserDetails from "./components/UpdateDetailsComponent.js"
+
 
 class App extends Component {
 	state = {
@@ -29,6 +35,7 @@ class App extends Component {
 		console.log("yww");
 		axios.get("/api/logout");
 	}
+	
 	render() {
 		return (
             <div>
@@ -43,10 +50,16 @@ class App extends Component {
 										</NavbarBrand>
 									</div>
 									<h2>{ this.state.current_user.name}</h2>
+									<a href="./Details"><Button color="info">Update your details</Button></a>
 									<a href="http://localhost:5000/api/logout"><Button color="secondary">Logout</Button></a>
 								</div>
 							</Navbar>
 							<Route exact path="/" component={Dashboard} />
+							<Route path="/BAApp" component={DocProfiles} />
+							<Route path="/Doc1" component={Doc1} />
+							<Route path="/Doc2" component={Doc2} />
+							<Route path="/Doc3" component={Doc3} />
+							<Route path="/Details" component={UserDetails} />
 						</div>
 					) : (
 						<Route exact path="/" component={Login} />

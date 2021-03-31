@@ -4,6 +4,13 @@ import Navbarr from './NavbarComponent';
 import Appointment from './CurrentAppComponent';
 import Emergency from './EmergencyComponent';
 import Footer from './FooterComponent';
+import BAButton from './BookAppointmentButton';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from "react-router-dom";
 
 class Dashboard extends Component {
     constructor(props) {
@@ -26,12 +33,9 @@ class Dashboard extends Component {
                         </div>
                     </div>
                 </div>
+                <BAButton/>
                 
-                
-                <Button className="container font-weight-bold mt-5 " color="danger" size="lg" block>
-                    <h3>Book Appointment Now!</h3>
-                    <i class="fa fa-plus-circle fa-2x ml-3" aria-hidden="true"></i>
-                </Button>
+               
                 <Footer />
           </React.Fragment>
         );

@@ -5,7 +5,8 @@ const mongoose = require("mongoose");
 const path = require("path");
 const passport = require("passport");
 const cookieSession = require("cookie-session");
-var device = require('express-device');
+const device = require('express-device');
+const bodyParser = require('body-parser')
 
 const app = express();
 
@@ -35,6 +36,8 @@ app.use(function (req, res, next) {
     next();
 });
 app.use(express.json());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 const PORT = process.env.PORT || 5000;
 const DATABASE_CONNECTION = process.env.MONGODB_URI;
@@ -59,15 +62,15 @@ app.use(
 
 app.use(passport.initialize());
 app.use(passport.session());
-require("./config/passport.js");
-require("./routes/Auth.js")(app);
+require("../config/passport.js");
+require("../routes/Auth.js")(app);
 
-app.get("/api", (req,res)=>{
-    res.status(200).send({"message": "Welcome to the movie microservice API."});
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, "../src/app.js"));
 });
 
-const usersRouter = require("./routes/Patients");
-const doctorsRouter = require("./routes/Doctors");
+const usersRouter = require("../routes/Patients");
+const doctorsRouter = require("../routes/Doctors");
 app.use("/users", usersRouter);
 app.use("/doctors", doctorsRouter);
 
