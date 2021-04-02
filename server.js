@@ -62,17 +62,21 @@ app.use(
 
 app.use(passport.initialize());
 app.use(passport.session());
-require("../config/passport.js");
-require("../routes/Auth.js")(app);
+require("./config/passport.js");
+require("./routes/Auth.js")(app);
 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, "../src/app.js"));
-});
+app.use(express.static(path.resolve(__dirname, "client", "build")));
 
-const usersRouter = require("../routes/Patients");
-const doctorsRouter = require("../routes/Doctors");
+  
+
+const usersRouter = require("./routes/Patients");
+const doctorsRouter = require("./routes/Doctors");
 app.use("/users", usersRouter);
 app.use("/doctors", doctorsRouter);
+
+app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
 
 app.listen(PORT, () => {
     console.log(`Server is listening on port ${PORT}`);

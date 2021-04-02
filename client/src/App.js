@@ -51,7 +51,7 @@ class App extends Component {
 									</div>
 									<h2>{ this.state.current_user.name}</h2>
 									<a href="./Details"><Button color="info">Update your details</Button></a>
-									<a href="http://localhost:5000/api/logout"><Button color="secondary">Logout</Button></a>
+									<a href="/api/logout"><Button color="secondary">Logout</Button></a>
 								</div>
 							</Navbar>
 							<Route exact path="/" component={Dashboard} />

@@ -14,7 +14,7 @@ module.exports = app => {
         if (req.isAuthenticated()) {
             console.log("yes");
         }
-        res.redirect("http://localhost:3000/");
+        res.redirect("/");
     });
     app.get("/api/current_user", async (req, res) => {
         if (req.isAuthenticated()) {
@@ -31,6 +31,6 @@ module.exports = app => {
 
     app.get("/api/logout", (req, res) => {
         req.logout();
-        res.redirect("http://localhost:3000/");
+        res.redirect("/");
     });
 }
