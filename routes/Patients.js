@@ -26,6 +26,16 @@ router.route("/patient/:emailid").get((req, res) => {
 	})
 })
 
+router.route("/cancel/:emailid").post((req, res) => {
+	User.findOneAndUpdate(
+	  { email: req.params.emailid },
+	  { appointment: {} },
+	  (err, doc) => {
+		return res.json(doc);
+	  }
+	);
+  });
+
 router.route("/book").post((req, res) => {
 	User.findOneAndUpdate({ email: req.body.email }, req.body, (err, data)=>{
 		if (err) {
