@@ -11,7 +11,7 @@ export default class Login extends Component {
 		// Authenticate using via passport api in the backend
 		// Open Twitter login page
 		// Upon successful login, a cookie session will be stored in the client
-		axios.get("http://localhost:5000/google");
+		axios.get("/google");
 	}
 	render() {
 
@@ -30,7 +30,7 @@ export default class Login extends Component {
 					<br></br>
 				<h1>Login</h1>
 					
-						<a href="http://localhost:5000/google" class="button">
+						<a href="/google" class="button">
 							<div>
 								<span class="svgIcon t-popup-svg">
 									<svg
