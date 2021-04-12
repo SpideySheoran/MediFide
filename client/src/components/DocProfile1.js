@@ -86,7 +86,7 @@ const Doc1 = (props) => {
                                                     <i class="fa fa-calendar">
                                                     </i>
                                                 </div>
-                                                <input value={date} onChange={(e)=>setDate(e.target.value)} class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="text"/>
+                                                <input value={date} onChange={(e)=>setDate(e.target.value)} class="form-control" id="date" name="date" placeholder="M/DD/YYYY" type="date"/>
                                             </div>
                                         </div>
                                     </div>
