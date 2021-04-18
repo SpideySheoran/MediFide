@@ -11,6 +11,7 @@ import Doc1 from "./components/DocProfile1.js"
 import Doc2 from "./components/DocProfile2.js"
 import Doc3 from "./components/DocProfile3.js"
 import UserDetails from "./components/UpdateDetailsComponent.js"
+import Schedule from "./components/DocSchedule.js"
 
 
 class App extends Component {
@@ -60,6 +61,7 @@ class App extends Component {
 							<Route path="/Doc2" component={Doc2} />
 							<Route path="/Doc3" component={Doc3} />
 							<Route path="/Details" component={UserDetails} />
+							<Route path="/Schedule" component={Schedule} />
 						</div>
 					) : (
 						<Route exact path="/" component={Login} />
