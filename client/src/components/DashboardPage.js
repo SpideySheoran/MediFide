@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { Button,  Navbar, NavbarBrand } from 'reactstrap';
-import Navbarr from './NavbarComponent';
 import Appointment from './CurrentAppComponent';
 import Emergency from './EmergencyComponent';
 import Footer from './FooterComponent';

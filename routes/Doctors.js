@@ -17,8 +17,8 @@ router.route("/add").post((req, res) => {
 	const phone = req.body.personal.phone
 	const address = req.body.personal.address
 	const photo = req.body.personal.photo
-	const date = req.body.appointments.date
-	const slot = Number(req.body.appointments.slot)
+	const qualification = req.body.personal.qualification
+	const college = req.body.personal.college
 
 	const newUser = new User({
 		"personal": {
@@ -29,6 +29,8 @@ router.route("/add").post((req, res) => {
 			"phone":phone,
 			"address":address,
 			"photo":photo,
+			"qualification": qualification,
+			"college": college
 		}
 	});
 

@@ -2,7 +2,6 @@ import React, { Component } from "react"
 import { BrowserRouter, Route } from "react-router-dom"
 import { Navbar, NavbarBrand, Button } from "reactstrap"
 import Login from "./components/Login"
-import SignUp from "./components/SignUpPage"
 import Dashboard from "./components/DashboardPage"
 import "./App.css"
 import axios from "axios";
@@ -45,13 +44,14 @@ class App extends Component {
 						<div>
 							<Navbar dark color="danger">
 								<div className="container">
-									<div className="col-8">
+									<div className="col-sm-4">
 										<NavbarBrand href="/">
 											<h1>MediFide</h1>
 										</NavbarBrand>
 									</div>
-									<h2>{ this.state.current_user.name}</h2>
 									<a href="./Details"><Button color="info">Update your details</Button></a>
+									<a href="./Details"><Button color="info">View Medical history</Button></a>
+									<h2>{ this.state.current_user.name}</h2>
 									<a href="/api/logout"><Button color="secondary">Logout</Button></a>
 								</div>
 							</Navbar>

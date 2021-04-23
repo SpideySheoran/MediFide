@@ -28,6 +28,12 @@ const DoctorSchema = new Schema(
       },
       "photo": {
         type: String,
+      },
+      "qualification":{
+        type: String
+      },
+      "college":{
+        type: String
       }
     },
     "appointments": [

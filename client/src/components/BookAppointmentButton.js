@@ -2,10 +2,7 @@ import React from 'react';
 
 import { Button} from 'reactstrap';
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
+    BrowserRouter as Router
   } from "react-router-dom";
 //import DocProfiles from './DocProfilesComponent';
 function BAButton(props)

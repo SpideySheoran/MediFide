@@ -1,8 +1,6 @@
 import React, { Component } from "react"
 import { Navbar, NavbarBrand, Button, Form, FormGroup, Label, Input } from "reactstrap"
 import axios from "axios";
-import LoginForm from './LoginComponent';
-import SignUp from './SignUpPage';
 
 export default class Login extends Component {
 	

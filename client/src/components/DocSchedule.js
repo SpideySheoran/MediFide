@@ -1,5 +1,5 @@
-import React, { Component, useState, useEffect } from 'react';
-import { Navbar, NavbarBrand, Button } from "reactstrap"
+import React, { useState, useEffect } from 'react';
+import { Button } from "reactstrap"
 import {
     Table
 

@@ -1,9 +1,4 @@
 import React, { Component, useState, useEffect } from 'react';
-import {
-    Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle
-  } from 'reactstrap';
-
 import Footer from './FooterComponent';
 import axios from 'axios';
 
@@ -13,6 +8,8 @@ const Doc1 = (props) => {
     const [currentUser, setCurrentUser] = useState({ email: "" });
     const [state, setState] = useState({ time: "" }); 
     const [date, setDate] = useState("");
+    const [show,setShow] = useState(false);
+    
 
     useEffect(() => {
         let emailid=currentUser.email;
@@ -36,7 +33,7 @@ const Doc1 = (props) => {
     }, [])
 
         const handleClick =()=>{
-            axios.post("/doctors/appointment/605f89786ab3b02854353104", { appointments: { date: date, slots: { slot: state.time } }, docName: "Dr. Suresh Rana", email: currentUser.email }).then(response => console.log(response));
+            axios.post("/doctors/appointment/60828a2debb1ea4a10ec6a18", { appointments: { date: date, slots: { slot: state.time } }, docName: "Dr. Suresh Rana", email: currentUser.email }).then(response => console.log(response));
         }
 
     return (
