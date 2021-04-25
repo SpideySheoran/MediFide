@@ -8,6 +8,12 @@ router.route("/").get((req, res) => {
 		.catch((err) => res.status(400).json("Error: " + err))
 })
 
+router.route("/:id").get((req,res) => {
+    User.findById(req.params.id).exec((err,Doctors)=>{
+        res.json(Doctors)
+    })
+})
+
 
 router.route("/add").post((req, res) => {
 	const name = req.body.personal.name
@@ -40,6 +46,16 @@ router.route("/add").post((req, res) => {
 		.catch((err) => res.status(400).json("Error: " + err))
 })
 
+router.route("/remove/:id").post(async (req, res) => {
+	User.deleteOne({ _id: req.params.id }, function (err) {
+		if (err)
+			return res.json(err);
+		else {
+			return res.json({ msg: "success" });
+		}
+	})
+});
+
 router.route("/appointment/:id").post(async (req, res) => {
 
 	const date = req.body.appointments.date
@@ -71,19 +87,6 @@ router.route("/appointment/:id").post(async (req, res) => {
 		}
 	});
 
-
-	// const query = {_id : req.params.id, "appointments.date": date, "appointments.slots.slot": {$nin: [slot]}};
-    // const updateDocument = {
-    //   $push: { "appointments.$.slots":{"slot": slot }}
-	// }
-    // const result = User.updateOne(query, updateDocument, (err, doc) => {
-	// 	if(err){
-	// 		res.send({status:false, message:"Error: not updated", err});
-	// 	}
-	// 	else {
-	// 		res.send({status:true, message:"Success: Updated1"});	
-	// 	}
-	// });
 })
 
 router.route("/appointment/:id/date").post((req, res) => {

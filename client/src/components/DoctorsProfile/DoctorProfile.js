@@ -1,13 +1,32 @@
-import React from "react";
-import Footer from "./FooterComponent";
+import React, {useState, useEffect} from "react";
+import Footer from "../FooterComponent";
 import axios from "axios";
-
+import { useHistory, useParams } from "react-router-dom";
 function DoctorProfile() {
   const [currentUser, setCurrentUser] = useState({ email: "" });
   const [state, setState] = useState({ time: "" });
   const [date, setDate] = useState("");
-
+  const [currentDoctor, setCurrentDoctor] = useState({
+      name: "",
+      qualification: "",
+      college: "",
+      profilePic: ""
+  });
+  const { id } = useParams();
   useEffect(() => {
+
+    axios.get("/doctors/"+id)
+    .then((response) => {
+        console.log(response.data.personal);
+        setCurrentDoctor({
+            name: response.data.personal.name,
+            qualification: response.data.personal.qualification,
+            college: response.data.personal.college,
+            profilePic: response.data.personal.photo
+        })
+    })
+    console.log(currentDoctor);
+
     let emailid = currentUser.email;
     axios
       .get("/api/current_user")
@@ -26,14 +45,19 @@ function DoctorProfile() {
       });
   }, []);
 
-  const handleClick = () => {
+  const handleClickBook = () => {
     axios
-      .post("/doctors/appointment/605f89786ab3b02854353104", {
+      .post("/doctors/appointment/"+id, {
         appointments: { date: date, slots: { slot: state.time } },
-        docName: "Dr. Suresh Rana",
+        docName: currentDoctor.name,
         email: currentUser.email,
       })
       .then((response) => console.log(response));
+  };
+
+  const handleClickAvail = () => {
+    let slots = document.getElementById('Slots');
+    slots.removeAttribute("hidden");
   };
   return (
     <React.Fragment>
@@ -46,17 +70,17 @@ function DoctorProfile() {
                 <img
                   top
                   width="30%"
-                  src="/assets/images/1.png"
+                  src={currentDoctor.profilePic}
                   class="img-rounded"
                   alt="Doc1"
                 />
               </div>
               <div className="col-12 col-sm-12 ">
-                <h3>Dr. Suresh Rana</h3>
-                <h5>MD, M.B.B.S.</h5>
+                <h3>{currentDoctor.name}</h3>
+                <h5>{currentDoctor.qualification}</h5>
                 <h5></h5>
                 <h5></h5>
-                <h4>Gold medalist from Government Medical College Bombay</h4>
+                <h4>{currentDoctor.college}</h4>
               </div>
             </div>
           </div>
@@ -98,96 +122,121 @@ function DoctorProfile() {
                 </div>
               </div>
             </div>
-            <div class="mt-5" id="Slots">
+            
+
+            <div class="form-group mt-3">
+              <div class="col-sm-10 col-sm-offset-2">
+                  <button
+                    onClick={handleClickAvail}
+                    class="btn btn-danger "
+                    name="submit"
+                    type="submit"
+                  >
+                    Check Availiblity
+                  </button>
+              </div>
+            </div>
+            <div class="mt-5" id="Slots" hidden = 'true'>
               <button
                 class="btn btn-primary "
+                style={{margin: "2.5px"}}
                 onClick={() => setState({ time: "10-11am" })}
               >
                 10-11am
               </button>
               <button
                 class="btn btn-primary "
-                style={{margin: "5px"}}
+                style={{margin: "2.5px"}}
                 onClick={() => setState({ time: "11-12pm" })}
               >
                 11-12pm
               </button>
               <button
                 class="btn btn-primary "
+                style={{margin: "2.5px"}}
                 onClick={() => setState({ time: "12-1pm" })}
               >
                 12-1pm
               </button>
               <button
                 class="btn btn-primary "
+                style={{margin: "2.5px"}}
                 onClick={() => setState({ time: "1-2pm" })}
               >
                 1-2pm
               </button>
               <button
                 class="btn btn-primary "
+                style={{margin: "2.5px"}}
                 onClick={() => setState({ time: "2-3pm" })}
               >
                 2-3pm
               </button>
               <button
                 class="btn btn-primary "
+                style={{margin: "2.5px"}}
                 onClick={() => setState({ time: "3-4pm" })}
               >
                 3-4pm
               </button>
               <button
                 class="btn btn-primary "
+                style={{margin: "2.5px"}}
                 onClick={() => setState({ time: "4-5pm" })}
               >
                 4-5pm
               </button>
               <button
                 class="btn btn-primary "
+                style={{margin: "2.5px"}}
                 onClick={() => setState({ time: "5-6pm" })}
               >
                 5-6pm
               </button>
               <button
                 class="btn btn-primary "
+                style={{margin: "2.5px"}}
                 onClick={() => setState({ time: "6-7pm" })}
               >
                 6-7pm
               </button>
               <button
                 class="btn btn-primary "
+                style={{margin: "2.5px"}}
                 onClick={() => setState({ time: "7-8pm" })}
               >
                 7-8pm
               </button>
               <button
                 class="btn btn-primary "
+                style={{margin: "2.5px"}}
                 onClick={() => setState({ time: "8-9pm" })}
               >
                 8-9pm
               </button>
               <button
                 class="btn btn-primary "
+                style={{margin: "2.5px"}}
                 onClick={() => setState({ time: "9-10pm" })}
               >
                 9-10pm
               </button>
-            </div>
-
-            <div class="form-group mt-3">
+              <div class="form-group mt-3">
               <div class="col-sm-10 col-sm-offset-2">
-                <a href="/">
+                <a href = '/'>
                   <button
-                    onClick={handleClick}
+                    onClick={handleClickBook}
                     class="btn btn-danger "
                     name="submit"
                     type="submit"
                   >
-                    Check Availiblity and Book
+                    Book
                   </button>
                 </a>
               </div>
             </div>
+            </div>
+
           </div>
         </div>
       </div>

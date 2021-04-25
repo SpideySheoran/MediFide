@@ -30,7 +30,7 @@ export default class Login extends Component {
 						<div className="col-3">
 							<h3>Login as Patient</h3>
 						</div>
-						<div className="col-3">	
+						<div className="col-6">	
 								<a href="/google" class="button">
 									<div>
 										<span class="svgIcon t-popup-svg">
@@ -64,11 +64,13 @@ export default class Login extends Component {
 									</div>
 								</a>
 						</div>		
+					</div>
+					<div className="row mt-5">
 						<div className="col-3">
 							<h1></h1>
 							<h3>Login as Doctor</h3>
 						</div>
-						<div className="col-3">	
+						<div className="col-6">	
 								<a href="/google" class="button">
 									<div>
 										<span class="svgIcon t-popup-svg">
