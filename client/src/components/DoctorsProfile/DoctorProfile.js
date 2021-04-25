@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import Footer from "../FooterComponent";
 import axios from "axios";
 import { useHistory, useParams } from "react-router-dom";
@@ -7,24 +7,23 @@ function DoctorProfile() {
   const [state, setState] = useState({ time: "" });
   const [date, setDate] = useState("");
   const [currentDoctor, setCurrentDoctor] = useState({
-      name: "",
-      qualification: "",
-      college: "",
-      profilePic: ""
+    name: "",
+    qualification: "",
+    college: "",
+    profilePic: "",
   });
+  const [slots, setSlots] = useState([]);
   const { id } = useParams();
   useEffect(() => {
-
-    axios.get("/doctors/"+id)
-    .then((response) => {
-        console.log(response.data.personal);
-        setCurrentDoctor({
-            name: response.data.personal.name,
-            qualification: response.data.personal.qualification,
-            college: response.data.personal.college,
-            profilePic: response.data.personal.photo
-        })
-    })
+    axios.get("/doctors/" + id).then((response) => {
+      console.log(response.data.personal);
+      setCurrentDoctor({
+        name: response.data.personal.name,
+        qualification: response.data.personal.qualification,
+        college: response.data.personal.college,
+        profilePic: response.data.personal.photo,
+      });
+    });
     console.log(currentDoctor);
 
     let emailid = currentUser.email;
@@ -47,7 +46,7 @@ function DoctorProfile() {
 
   const handleClickBook = () => {
     axios
-      .post("/doctors/appointment/"+id, {
+      .post("/doctors/appointment/" + id, {
         appointments: { date: date, slots: { slot: state.time } },
         docName: currentDoctor.name,
         email: currentUser.email,
@@ -56,7 +55,14 @@ function DoctorProfile() {
   };
 
   const handleClickAvail = () => {
-    let slots = document.getElementById('Slots');
+    axios
+      .post("/doctors/appointmentCheck/" + id, {
+        appointments: { date: date, slots: { slot: state.time } },
+        docName: currentDoctor.name,
+        email: currentUser.email,
+      })
+      .then((response) => setSlots(response.data));
+    let slots = document.getElementById("Slots");
     slots.removeAttribute("hidden");
   };
   return (
@@ -122,121 +128,128 @@ function DoctorProfile() {
                 </div>
               </div>
             </div>
-            
 
             <div class="form-group mt-3">
               <div class="col-sm-10 col-sm-offset-2">
-                  <button
-                    onClick={handleClickAvail}
-                    class="btn btn-danger "
-                    name="submit"
-                    type="submit"
-                  >
-                    Check Availiblity
-                  </button>
+                <button
+                  onClick={handleClickAvail}
+                  class="btn btn-danger "
+                  name="submit"
+                  type="submit"
+                >
+                  Check Availiblity
+                </button>
               </div>
             </div>
-            <div class="mt-5" id="Slots" hidden = 'true'>
-              <button
+            <div class="mt-5" id="Slots" hidden="true">
+              {slots.map((slot) => (
+                <button
+                  class="btn btn-primary "
+                  style={{ margin: "2.5px" }}
+                  onClick={() => setState({ time: slot })}
+                >
+                  {slot}
+                </button>
+              ))}
+              {/* <button
                 class="btn btn-primary "
-                style={{margin: "2.5px"}}
+                style={{ margin: "2.5px" }}
                 onClick={() => setState({ time: "10-11am" })}
               >
                 10-11am
               </button>
               <button
                 class="btn btn-primary "
-                style={{margin: "2.5px"}}
+                style={{ margin: "2.5px" }}
                 onClick={() => setState({ time: "11-12pm" })}
               >
                 11-12pm
               </button>
               <button
                 class="btn btn-primary "
-                style={{margin: "2.5px"}}
+                style={{ margin: "2.5px" }}
                 onClick={() => setState({ time: "12-1pm" })}
               >
                 12-1pm
               </button>
               <button
                 class="btn btn-primary "
-                style={{margin: "2.5px"}}
+                style={{ margin: "2.5px" }}
                 onClick={() => setState({ time: "1-2pm" })}
               >
                 1-2pm
               </button>
               <button
                 class="btn btn-primary "
-                style={{margin: "2.5px"}}
+                style={{ margin: "2.5px" }}
                 onClick={() => setState({ time: "2-3pm" })}
               >
                 2-3pm
               </button>
               <button
                 class="btn btn-primary "
-                style={{margin: "2.5px"}}
+                style={{ margin: "2.5px" }}
                 onClick={() => setState({ time: "3-4pm" })}
               >
                 3-4pm
               </button>
               <button
                 class="btn btn-primary "
-                style={{margin: "2.5px"}}
+                style={{ margin: "2.5px" }}
                 onClick={() => setState({ time: "4-5pm" })}
               >
                 4-5pm
               </button>
               <button
                 class="btn btn-primary "
-                style={{margin: "2.5px"}}
+                style={{ margin: "2.5px" }}
                 onClick={() => setState({ time: "5-6pm" })}
               >
                 5-6pm
               </button>
               <button
                 class="btn btn-primary "
-                style={{margin: "2.5px"}}
+                style={{ margin: "2.5px" }}
                 onClick={() => setState({ time: "6-7pm" })}
               >
                 6-7pm
               </button>
               <button
                 class="btn btn-primary "
-                style={{margin: "2.5px"}}
+                style={{ margin: "2.5px" }}
                 onClick={() => setState({ time: "7-8pm" })}
               >
                 7-8pm
               </button>
               <button
                 class="btn btn-primary "
-                style={{margin: "2.5px"}}
+                style={{ margin: "2.5px" }}
                 onClick={() => setState({ time: "8-9pm" })}
               >
                 8-9pm
               </button>
               <button
                 class="btn btn-primary "
-                style={{margin: "2.5px"}}
+                style={{ margin: "2.5px" }}
                 onClick={() => setState({ time: "9-10pm" })}
               >
                 9-10pm
-              </button>
+              </button> */}
               <div class="form-group mt-3">
-              <div class="col-sm-10 col-sm-offset-2">
-                <a href = '/'>
-                  <button
-                    onClick={handleClickBook}
-                    class="btn btn-danger "
-                    name="submit"
-                    type="submit"
-                  >
-                    Book
-                  </button>
-                </a>
+                <div class="col-sm-10 col-sm-offset-2">
+                  <a href="/">
+                    <button
+                      onClick={handleClickBook}
+                      class="btn btn-danger "
+                      name="submit"
+                      type="submit"
+                    >
+                      Book
+                    </button>
+                  </a>
+                </div>
               </div>
             </div>
-            </div>
-
           </div>
         </div>
       </div>
