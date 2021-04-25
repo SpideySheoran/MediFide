@@ -89,9 +89,11 @@ router.route("/appointmentCheck/:id").post(async (req, res) => {
     _id: req.params.id,
     "appointments.date": date,
   });
-  console.log(user.appointments);
+
   user.appointments.forEach((appointment) => {
+    //console.log(appointment);
     if (appointment.date === date) {
+      console.log(appointment);
       appointment.slots.forEach((slot) => {
         slots = slots.filter((slot1) => slot1 !== slot.slot);
       });
@@ -128,6 +130,7 @@ router.route("/appointment/:id").post(async (req, res) => {
       $push: { "appointments.$.slots": { slot: slot } },
     },
     async (err, doc) => {
+      console.log(doc);
       if (err) {
         return res.json({ err });
       }

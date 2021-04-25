@@ -50,7 +50,7 @@ mongoose.connect(DATABASE_CONNECTION, {
 
 const connection = mongoose.connection;
 connection.once("open", () => {
-    console.log("MongoDB databse connection established successfully");
+    console.log("MongoDB database connection established successfully");
 });
 
 app.use(

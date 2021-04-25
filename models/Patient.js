@@ -3,54 +3,63 @@ const Schema = mongoose.Schema
 
 const PatientSchema = new Schema(
 	{
-		name: {
+		"name": {
 			type: String,
 		},
-		height: {
+		"height": {
 			type: String,
 		},
-		weight: {
+		"weight": {
 			type: String,
 		},
-		email: {
+		"email": {
 			type: String,
 			unique: true,
 		},
-		number: {
+		"number": {
 			type: String,
 		},
-		anumber: {
+		"anumber": {
 			type: String,
 		},
-		address1: {
+		"address1": {
 			type: String,
 		},
-		address2: {
+		"address2": {
 			type: String,
 		},
-		photo: {
+		"photo": {
 			type: String,
 		},
-		appointment: {
-			doctor: {
+		"appointment": {
+			"doctor": {
 				type: String,
 			},
-			time: {
+			"time": {
 				type: String,
 			},
-			date: {
+			"date": {
 				type: String,
 			}
 		},
-		city: {
+		"city": {
 			type:String
 		},
-		state: {
+		"state": {
 			type:String,
 		},
-		zip: {
+		"zip": {
 			type:String,
-		}
+		},
+		"history": [
+			{	"date": {
+					type: Date
+				},
+				"prescription": {
+					type: String
+				}
+			}
+		]
 
 	},
 	{
