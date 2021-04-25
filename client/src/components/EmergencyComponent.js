@@ -14,7 +14,7 @@ class Emergency extends Component {
         return (
           <React.Fragment>
                 
-                        <Card>
+                        <Card className="mt-5 shadow-lg p-3 mb-5 rounded-0">
                             <CardImg top width="100%" src="/assets/images/ambulance.jpg" alt="Ambulance Contact Number" />
                             <CardBody>
                                 

@@ -12,7 +12,7 @@ const Prescription = (props) => {
             <Container>
                 <Row>
                     <Col sm={{ size: 6, offset: 3 }}>
-                        <Card className="mt-5 shadow-lg p-3 mb-5  rounded" style={{backgroundColor: '#f0afaf'}} >
+                        <Card className="mt-5 shadow-lg p-3 mb-5  rounded-0" style={{backgroundColor: '#f0afaf'}} >
                             <CardBody>
                                 <h2>Patient's Prescription</h2>
                                 <Form>

@@ -43,13 +43,13 @@ const Appointment = (props) => {
     return (
       <React.Fragment>
                 
-                    <Card>
+                    <Card className="mt-5 shadow-lg p-3 mb-5 rounded-0">
                         <CardImg top width="100%" src="/assets/images/Current.jpg" alt="Your Bookings" />
                         <CardBody>
                         <CardTitle tag="h3">Current Appointment</CardTitle>
                     {details ? <CardText>{details.date}, {details.time}, {details.doctor}</CardText> : <CardText>No Appointments</CardText>}
                         
-                        <Button onClick={handleClick} className="font-weight-bold" color="warning" size="lg" block>Cancel Appointment</Button>
+                        <Button onClick={handleClick} className="font-weight-bold rounded-0 shadow" color="warning" size="lg" block>Cancel Appointment</Button>
                         </CardBody>
                     </Card>
                         

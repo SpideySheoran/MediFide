@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Col, Row, Button, Form, FormGroup, Label, Input, Container, Card, CardBody, CardTitle } from 'reactstrap';
 import axios from "axios";
+import Footer from "./FooterComponent.js"
 
 const UserDetails = (props) => {
     const [currentUser, setCurrentUser] = useState({ email: "" });
@@ -61,73 +62,87 @@ const UserDetails = (props) => {
     //         });
     //     }
   return (
-    <div className="container mt-5">
-          <Form>
-              {currentUser.email && (<input name="email" value={currentUser.email} hidden></input>)}
-              
-        <Row form>
-            <Col md={6}>
-            <FormGroup>
-                <Label for="exampleHeight">Height</Label>
-                <Input onChange={handleChange} type="text" value={inputFields.height} name="height" id="exampleHeight" placeholder="ft/cm" />
-            </FormGroup>
-            </Col>
-            <Col md={6}>
-            <FormGroup>
-                <Label for="exampleWeight">Weight</Label>
-                <Input onChange={handleChange} type="text" value={inputFields.weight} name="weight" id="exampleWeight" placeholder="Kg/lb" />
-            </FormGroup>
-            </Col>
-        </Row>
-        <Row form>
-            <Col md={6}>
-            <FormGroup>
-                <Label for="exampleNumber">Contact number</Label>
-                <Input onChange={handleChange} type="text" value={inputFields.number} name="number" id="exampleNumber" placeholder="94XXXXXXXX" />
-            </FormGroup>
-            </Col>
-            <Col md={6}>
-            <FormGroup>
-                <Label for="exampleANumber">Aternate Contact Number</Label>
-                <Input onChange={handleChange} type="text" value={inputFields.anumber} name="anumber" id="exampleANumber" placeholder="94XXXXXXXX" />
-            </FormGroup>
-            </Col>
-        </Row>
-        <FormGroup>
-            <Label for="exampleAddress">Address</Label>
-            <Input onChange={handleChange} type="text" value={inputFields.address1} name="address1" id="exampleAddress" placeholder="1234 Main St"/>
-        </FormGroup>
-        <FormGroup>
-            <Label for="exampleAddress2">Address 2</Label>
-            <Input onChange={handleChange} type="text" value={inputFields.address2} name="address2" id="exampleAddress2" placeholder="Apartment, studio, or floor"/>
-        </FormGroup>
-        <Row form>
-            <Col md={6}>
-            <FormGroup>
-                <Label for="exampleCity">City</Label>
-                <Input onChange={handleChange} type="text" value={inputFields.city} name="city" id="exampleCity"/>
-            </FormGroup>
-            </Col>
-            <Col md={4}>
-            <FormGroup>
-                <Label for="exampleState">State</Label>
-                <Input onChange={handleChange} type="text" value={inputFields.state} name="state" id="exampleState"/>
-            </FormGroup>
-            </Col>
-            <Col md={2}>
-            <FormGroup>
-                <Label for="exampleZip">Zip</Label>
-                <Input onChange={handleChange} type="text" value={inputFields.zip} name="zip" id="exampleZip"/>
-            </FormGroup>  
-            </Col>
-        </Row>
-        <FormGroup check>
-            <Input type="checkbox" name="check" id="exampleCheck"/>
-            <Label for="exampleCheck" check>Check me out</Label>
-        </FormGroup>
-        <Button onClick={handleClick} id = "updatebutton" className="mt-3" color="primary">Update</Button>
-        </Form>
-    </div>
+    <React.Fragment>
+            <Container>
+                <Row>
+                    <Col sm={{ size: 6, offset: 3 }}>
+                        <Card className="mt-5 shadow-lg p-3 mb-5 rounded-0" style={{backgroundColor: '#ffaba6'}} >
+                            <CardTitle className="mt-3">
+                                <h2>Update Your Deatils</h2>
+                            </CardTitle>
+                                <CardBody>
+                                <Form>
+                                    {currentUser.email && (<input name="email" value={currentUser.email} hidden></input>)}
+                                    
+                                <Row form>
+                                    <Col md={6}>
+                                    <FormGroup>
+                                        <Label for="exampleHeight">Height</Label>
+                                        <Input onChange={handleChange} type="text" value={inputFields.height} name="height" id="exampleHeight" placeholder="ft/cm" />
+                                    </FormGroup>
+                                    </Col>
+                                    <Col md={6}>
+                                    <FormGroup>
+                                        <Label for="exampleWeight">Weight</Label>
+                                        <Input onChange={handleChange} type="text" value={inputFields.weight} name="weight" id="exampleWeight" placeholder="Kg/lb" />
+                                    </FormGroup>
+                                    </Col>
+                                </Row>
+                                <Row form>
+                                    <Col md={6}>
+                                    <FormGroup>
+                                        <Label for="exampleNumber">Contact number</Label>
+                                        <Input onChange={handleChange} type="text" value={inputFields.number} name="number" id="exampleNumber" placeholder="94XXXXXXXX" />
+                                    </FormGroup>
+                                    </Col>
+                                    <Col md={6}>
+                                    <FormGroup>
+                                        <Label for="exampleANumber">Aternate Contact Number</Label>
+                                        <Input onChange={handleChange} type="text" value={inputFields.anumber} name="anumber" id="exampleANumber" placeholder="94XXXXXXXX" />
+                                    </FormGroup>
+                                    </Col>
+                                </Row>
+                                <FormGroup>
+                                    <Label for="exampleAddress">Address</Label>
+                                    <Input onChange={handleChange} type="text" value={inputFields.address1} name="address1" id="exampleAddress" placeholder="1234 Main St"/>
+                                </FormGroup>
+                                <FormGroup>
+                                    <Label for="exampleAddress2">Address 2</Label>
+                                    <Input onChange={handleChange} type="text" value={inputFields.address2} name="address2" id="exampleAddress2" placeholder="Apartment, studio, or floor"/>
+                                </FormGroup>
+                                <Row form>
+                                    <Col md={6}>
+                                    <FormGroup>
+                                        <Label for="exampleCity">City</Label>
+                                        <Input onChange={handleChange} type="text" value={inputFields.city} name="city" id="exampleCity"/>
+                                    </FormGroup>
+                                    </Col>
+                                    <Col md={4}>
+                                    <FormGroup>
+                                        <Label for="exampleState">State</Label>
+                                        <Input onChange={handleChange} type="text" value={inputFields.state} name="state" id="exampleState"/>
+                                    </FormGroup>
+                                    </Col>
+                                    <Col md={2}>
+                                    <FormGroup>
+                                        <Label for="exampleZip">Zip</Label>
+                                        <Input onChange={handleChange} type="text" value={inputFields.zip} name="zip" id="exampleZip"/>
+                                    </FormGroup>  
+                                    </Col>
+                                </Row>
+                                <FormGroup check>
+                                    <Input type="checkbox" name="check" id="exampleCheck"/>
+                                    <Label for="exampleCheck" check>Check me out</Label>
+                                </FormGroup>
+                                <Button onClick={handleClick} id = "updatebutton" className="mt-3" color="primary">Update</Button>
+                                </Form>
+                            </CardBody>
+                        </Card>
+                    </Col>
+                </Row>
+            </Container>
+            <Footer/>
+        </React.Fragment>
   );
 }
 
