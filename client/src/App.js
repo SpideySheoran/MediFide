@@ -6,7 +6,6 @@ import "./App.css"
 import axios from "axios";
 import DocProfiles from "./components/DocProfilesComponent"
 import DoctoProfile from "./components/DoctorsProfile/DoctorProfile"
-import Navbarr from "./components/NavbarComponent"
 import UserDetails from "./components/UpdateDetailsComponent.js"
 import PatientHistory from "./components/DoctorsProfile/PatientHistory"
 import AddDoc from "./components/Admin/AddDoctor"

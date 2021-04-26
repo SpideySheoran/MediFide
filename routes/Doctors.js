@@ -20,7 +20,6 @@ router.route("/add").post((req, res) => {
   const email = req.body.personal.email;
   const dob = req.body.personal.dob;
   const phone = req.body.personal.phone;
-  const address = req.body.personal.address;
   const photo = req.body.personal.photo;
   const qualification = req.body.personal.qualification;
   const college = req.body.personal.college;
@@ -32,7 +31,6 @@ router.route("/add").post((req, res) => {
       email: email,
       dob: dob,
       phone: phone,
-      address: address,
       photo: photo,
       qualification: qualification,
       college: college,

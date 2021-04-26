@@ -6,7 +6,7 @@ import Navbarr from "./Navbar.js"
 import Footer from "./FooterComponent"
 
 const AddDoc = (props) => {
-    const [inputFields, setInputFields] = useState({name:"", gender:"", email:"", dob:"", phone:"", address:"", photo:"", qualification:"", college:""})
+    const [inputFields, setInputFields] = useState({name:"", gender:"", email:"", dob:"", phone:"", photo:"", qualification:"", college:""})
 
     const handleChange = (event) => {
     console.log(event.target.name);
