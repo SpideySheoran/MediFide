@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import { Col, Row, Button, Form, FormGroup, Label, Input, Container, Card, CardBody, CardTitle } from 'reactstrap';
 import axios from "axios";
 import Footer from "./FooterComponent.js"
+import Navbarr from "./NavbarComponent.js"
 
 const UserDetails = (props) => {
     const [currentUser, setCurrentUser] = useState({ email: "" });
@@ -63,6 +64,7 @@ const UserDetails = (props) => {
     //     }
   return (
     <React.Fragment>
+        <Navbarr/>
             <Container>
                 <Row>
                     <Col sm={{ size: 6, offset: 3 }}>
@@ -130,10 +132,7 @@ const UserDetails = (props) => {
                                     </FormGroup>  
                                     </Col>
                                 </Row>
-                                <FormGroup check>
-                                    <Input type="checkbox" name="check" id="exampleCheck"/>
-                                    <Label for="exampleCheck" check>Check me out</Label>
-                                </FormGroup>
+                                
                                 <Button onClick={handleClick} id = "updatebutton" className="mt-3" color="primary">Update</Button>
                                 </Form>
                             </CardBody>

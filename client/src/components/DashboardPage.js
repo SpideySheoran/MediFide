@@ -3,12 +3,7 @@ import Appointment from './CurrentAppComponent';
 import Emergency from './EmergencyComponent';
 import Footer from './FooterComponent';
 import BAButton from './BookAppointmentButton';
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-  } from "react-router-dom";
+import Navbarr from './NavbarComponent';
 
 class Dashboard extends Component {
     constructor(props) {
@@ -19,6 +14,7 @@ class Dashboard extends Component {
 
         return (
           <React.Fragment>
+				<Navbarr/>
                 <div className="container mt-3">
                     <div className="row">
                         <div className="col-12 col-sm-6">

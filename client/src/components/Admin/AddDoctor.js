@@ -1,7 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Col, Row, Button, Form, FormGroup, Label, Input, Card, CardTitle, CardBody } from 'reactstrap';
 import axios from "axios";
 import { Redirect } from 'react-router';
+import Navbarr from "./Navbar.js"
+import Footer from "./FooterComponent"
 
 const AddDoc = (props) => {
     const [inputFields, setInputFields] = useState({name:"", gender:"", email:"", dob:"", phone:"", address:"", photo:"", qualification:"", college:""})
@@ -21,9 +23,13 @@ const AddDoc = (props) => {
         })
     }
   return (
+      <React.Fragment>
+          <Navbarr />
     <div className="container mt-5">
-        <h2>Add a new Dcotor</h2>
-          <Form className="mt-5">
+        <Card className="shadow-lg" style={{backgroundColor: '#f0afaf'}}> 
+        <CardTitle className="mt-5 ml-5"><h1>Add a new Doctor</h1></CardTitle>
+        <CardBody>
+          <Form >
               
         <Row form>
             <Col md={6}>
@@ -79,8 +85,11 @@ const AddDoc = (props) => {
         </FormGroup>
             <Button onClick={handleClick} id = "updatebutton" className="mt-3" color="primary">Add Doctor</Button>
         </Form>
+        </CardBody>
+        </Card>
     </div>
-
+    <Footer/>
+    </React.Fragment>
   );
 }
 

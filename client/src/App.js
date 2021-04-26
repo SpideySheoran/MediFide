@@ -8,9 +8,11 @@ import DocProfiles from "./components/DocProfilesComponent"
 import DoctoProfile from "./components/DoctorsProfile/DoctorProfile"
 import Navbarr from "./components/NavbarComponent"
 import UserDetails from "./components/UpdateDetailsComponent.js"
-import Schedule from "./components/DocSchedule.js"
 import PatientHistory from "./components/DoctorsProfile/PatientHistory"
 import AddDoc from "./components/Admin/AddDoctor"
+import LoginComponent from "./components/Admin/LoginComponent"
+import ViewDoc from "./components/Admin/ViewDoctor"
+import Schedule from "./components/DocSchedule"
 
 class App extends Component {
 	state = {
@@ -41,16 +43,15 @@ class App extends Component {
 				<BrowserRouter>
 					{this.state.loginStatus ? (
 						<div>
-							
-							
-							<Navbarr/>
 							<Route exact path="/" component={Dashboard} />
 							<Route path="/BAApp" component={DocProfiles} />
 							<Route path="/docProfile/:id" component={DoctoProfile} />
 							<Route path="/Details" component={UserDetails} />
 							<Route path="/Schedule" component={Schedule} />
 							<Route path="/History" component={PatientHistory}/>
-							<Route path="/doc" component={AddDoc}/>
+							<Route path="/admin/login" component={LoginComponent}/>
+							<Route path="/admin/add" component={AddDoc}/>
+							<Route path="/admin/view" component={ViewDoc}/>
 						</div>
 					) : (
 						<Route exact path="/" component={Login} />

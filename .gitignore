@@ -11,6 +11,8 @@
 /coverage
 test
 /src/.scannerwork
+/.scannerwork
+/client/.scannerwork
 
 # production
 /build

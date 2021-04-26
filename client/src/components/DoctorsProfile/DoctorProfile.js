@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Footer from "../FooterComponent";
 import axios from "axios";
+import { Container, Row, Col, Card, CardTitle, CardBody, CardImg } from 'reactstrap';
 import { useHistory, useParams } from "react-router-dom";
+import Navbarr from "./Navbar.js"
 function DoctorProfile() {
   const [currentUser, setCurrentUser] = useState({ email: "" });
   const [state, setState] = useState({ time: "" });
@@ -67,20 +69,24 @@ function DoctorProfile() {
   };
   return (
     <React.Fragment>
-      <div className="container mt-3">
-        <div className="row">
-          <div className="col-12 col-sm-12">
-            <div className="row">
-              <h2>Book Your Appointment With</h2>
-              <div className="col-12 col-sm-12">
+      <div>
+      <Navbarr/>
+      <Container >
+        <Row>
+          <Col sm={{ size: 12}}>
+          <Card className="mt-5 shadow-lg p-3 mb-5  rounded-0" >
+          <CardTitle className="mt-5  p-3  rounded-0"><h1>Book Your Appointment With</h1></CardTitle>
+            <Row >
+              <Col sm={{ size: 6, offset: 1}}>
+                <Card className="mt-5 shadow-lg p-3 mb-5  rounded-0" style={{backgroundColor: '#f0afaf'}}> 
                 <img
                   top
-                  width="30%"
+                  width="50%"
                   src={currentDoctor.profilePic}
                   class="img-rounded"
                   alt="Doc1"
                 />
-              </div>
+              
               <div className="col-12 col-sm-12 ">
                 <h3>{currentDoctor.name}</h3>
                 <h5>{currentDoctor.qualification}</h5>
@@ -88,9 +94,9 @@ function DoctorProfile() {
                 <h5></h5>
                 <h4>{currentDoctor.college}</h4>
               </div>
-            </div>
-          </div>
-        </div>
+              </Card>
+            </Col>
+          </Row>
         <div className="row mt-5">
           <div className="col-12">
             <h3>Select your desired Date</h3>
@@ -168,6 +174,10 @@ function DoctorProfile() {
             </div>
           </div>
         </div>
+      </Card>
+        </Col>
+        </Row>
+      </Container>
       </div>
       <Footer />
     </React.Fragment>

@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import { Button, Form, FormGroup, Label, Input, FormText, Card, CardBody } from 'reactstrap';
 import { Container, Row, Col } from 'reactstrap';
 import Footer from "./FooterComponent.js"
+import Navbarr from '../NavbarComponent'
 
 import axios from "axios";
 
@@ -9,6 +10,7 @@ const Prescription = (props) => {
    
   return (
         <React.Fragment>
+							<Navbarr/>
             <Container>
                 <Row>
                     <Col sm={{ size: 6, offset: 3 }}>

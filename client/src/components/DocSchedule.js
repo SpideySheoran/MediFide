@@ -12,6 +12,7 @@ import {
 
 import Footer from './FooterComponent';
 import axios from 'axios';
+import Navbarr from "./NavbarComponent"
 
 
 
@@ -47,6 +48,7 @@ const Schedule = (props) => {
 
     return (
         <React.Fragment>
+        <Navbarr />
                 <div className="container mt-3">
                     <div className="row">
                         <div className="col-12">
@@ -93,20 +95,20 @@ const Schedule = (props) => {
                             <tbody>
                                 <tr>
                                 <th scope="row">1</th>
-                                <td>Mark</td>
+                                <td>3-4pm</td>
                                 <td>Otto</td>
                                 <th><a href="/"><Button color="secondary">View</Button></a></th>
                                 </tr>
                                 <tr>
                                 <th scope="row">2</th>
-                                <td>Jacob</td>
+                                <td>6-7pm</td>
                                 <td>Thornton</td>
                                 <th><a href="/"><Button color="secondary">View</Button></a></th>
                                 </tr>
                                 <tr>
                                 <th scope="row">3</th>
-                                <td>Larry</td>
-                                <td>the Bird</td>
+                                <td>7-8pm</td>
+                                <td>Shubhanjay</td>
                                 <th><a href="/"><Button color="secondary">View</Button></a></th>
                                 </tr>
                             </tbody>
