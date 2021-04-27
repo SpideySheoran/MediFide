@@ -12,7 +12,6 @@ const Navbarr = (props) => {
 		  .then(response => {
 		
           setState({error:false,loadStatus:true,loginStatus:response.data.loggedIn, current_user: response.data.user});
-          console.log(this.state.current_user,this.state.loginStatus);
       }).catch(function (error) {
           console.log("ERROR LOADING DATA");
           console.log(error);
