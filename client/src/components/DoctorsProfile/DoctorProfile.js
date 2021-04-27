@@ -17,6 +17,14 @@ function DoctorProfile() {
   const [slots, setSlots] = useState([]);
   const { id } = useParams();
   useEffect(() => {
+    
+    const today = new Date()
+    var tomorrow = new Date(today)
+    tomorrow.setDate(tomorrow.getDate() + 1)
+    tomorrow = tomorrow.toISOString().split('T')[0];
+    document.getElementsByName("date")[0].setAttribute('min', tomorrow);
+
+
     axios.get("/doctors/" + id).then((response) => {
       console.log(response.data.personal);
       setCurrentDoctor({
@@ -67,6 +75,7 @@ function DoctorProfile() {
     let slots = document.getElementById("Slots");
     slots.removeAttribute("hidden");
   };
+
   return (
     <React.Fragment>
       <div>
