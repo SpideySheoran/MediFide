@@ -53,7 +53,9 @@ class App extends Component {
 							<Route path="/admin/view" component={ViewDoc}/>
 						</div>
 					) : (
-						<Route exact path="/" component={Login} />
+						<div>
+							<Route exact path="/" component={Login} />
+						</div>
 					)}
 				</BrowserRouter>
             </div>

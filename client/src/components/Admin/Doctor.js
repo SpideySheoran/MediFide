@@ -9,7 +9,7 @@ function Doctor(doctor) {
   const handleClick = () => {
     console.log(doctor.doctor._id)
     axios
-      .post("doctors/remove/" + doctor.doctor._id, {})
+      .post("/doctors/remove/" + doctor.doctor._id)
       .then((response) => console.log(response));
   };
   return (

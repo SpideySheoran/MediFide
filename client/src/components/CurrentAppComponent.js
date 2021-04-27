@@ -44,7 +44,7 @@ const Appointment = (props) => {
 
   return (
     <React.Fragment>
-      <Card>
+      <Card className = "mt-5 shadow-lg p-3 mb-5 rounded-0">
         <CardImg
           top
           width="100%"

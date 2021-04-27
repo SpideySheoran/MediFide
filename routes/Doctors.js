@@ -15,14 +15,14 @@ router.route("/:id").get((req, res) => {
 });
 
 router.route("/add").post((req, res) => {
-  const name = req.body.personal.name;
-  const gender = req.body.personal.gender;
-  const email = req.body.personal.email;
-  const dob = req.body.personal.dob;
-  const phone = req.body.personal.phone;
-  const photo = req.body.personal.photo;
-  const qualification = req.body.personal.qualification;
-  const college = req.body.personal.college;
+  const name = req.body.name;
+  const gender = req.body.gender;
+  const email = req.body.email;
+  const dob = req.body.dob;
+  const phone = req.body.phone;
+  const photo = req.body.photo;
+  const qualification = req.body.qualification;
+  const college = req.body.college;
 
   const newUser = new User({
     personal: {
@@ -51,6 +51,18 @@ router.route("/remove/:id").post(async (req, res) => {
     }
   });
 });
+
+router.route("/getByDate/:email/:date").get(async (req, res) => {
+  const doctor = await User.findOne({ "personal.email": req.params.email });
+  console.log(doctor);
+  doctor.appointments.forEach((appointment) => {
+    if (appointment.date === req.params.date) {
+      return res.json(appointment.slots);
+    }
+    
+  })
+  return res.json({ "msg": "Totally free" });
+})
 
 router.route("/appointmentCheck/:id").post(async (req, res) => {
   const date = req.body.appointments.date;
@@ -117,6 +129,9 @@ router.route("/appointment/:id").post(async (req, res) => {
       },
     }
   );
+    
+    const patient = await Patient.findOne({email:email});
+      
 
   User.findOneAndUpdate(
     {
@@ -125,7 +140,7 @@ router.route("/appointment/:id").post(async (req, res) => {
       "appointments.slots.slot": { $nin: [slot] },
     },
     {
-      $push: { "appointments.$.slots": { slot: slot } },
+      $push: { "appointments.$.slots": { slot: slot, name:patient.name } },
     },
     async (err, doc) => {
       console.log(doc);

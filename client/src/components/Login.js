@@ -105,7 +105,17 @@ export default class Login extends Component {
 								</a>
 						</div>		
 					</div>
+					<div className="row mt-5">
+						<div className="col-3">
+							<h1></h1>
+							<h3>Login as Admin</h3>
+							
+						</div>
+						<div className="col-3">	
+							<a href="/admin/login"><Button className="rounded-0 shadow-sm " block color="white">Login as ADMIN         </Button></a>
+						</div>		
 					</div>
+				</div>
 			</div>
 		)
 	}

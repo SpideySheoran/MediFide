@@ -1,7 +1,6 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import { Col, Row, Button, Form, FormGroup, Label, Input, Card, CardTitle, CardBody } from 'reactstrap';
 import axios from "axios";
-import { Redirect } from 'react-router';
 import Navbarr from "./Navbar.js"
 import Footer from "./FooterComponent"
 
@@ -18,7 +17,7 @@ const AddDoc = (props) => {
 
     const handleClick = () => {
         console.log(inputFields);
-        axios.post("/doctors/add", { ...inputFields }).then(response => {
+        axios.post("/doctors/add", inputFields).then(response => {
             console.log(response);
         })
     }
@@ -77,13 +76,15 @@ const AddDoc = (props) => {
         </FormGroup>
         <FormGroup>
             <Label for="examplePhoto">Photo</Label>
-            <Input onChange={handleChange} type="text" value={inputFields.photo} name="photo" id="examplePhoto" placeholder="Photo"/>
+            <Input onChange={handleChange} type="text" value={inputFields.photo} name="photo" id="examplePhoto" placeholder="Image URL"/>
         </FormGroup>
         
         <FormGroup check>
             
         </FormGroup>
+        <a href = "./view">
             <Button onClick={handleClick} id = "updatebutton" className="mt-3" color="primary">Add Doctor</Button>
+        </a>    
         </Form>
         </CardBody>
         </Card>

@@ -1,9 +1,17 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Container, Row, Col, Card, CardBody, CardTitle, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Container, Row, Col, Card, CardBody, CardTitle, Form, FormGroup, Label, Input, Button } from 'reactstrap';
 
 const Login = (props) => {
-  const [doctors, setDoctors] = useState([]);
+  const [pass, setPass] = useState("");
+  const password = "password";
+
+  const handleClick = () => {
+    if(pass===password){
+      props.history.push("/admin/view");
+    }
+  }
+
 
   return (
     <React.Fragment>
@@ -16,11 +24,12 @@ const Login = (props) => {
                             <Form>
                             <FormGroup>
                                 <Label for="examplePassword">Password</Label>
-                                <Input type="password" name="password" id="examplePassword" placeholder="******" />
+                                <Input value={pass} onChange={(e)=>setPass(e.target.value)} type="password" name="password" id="examplePassword" placeholder="******" />
                             </FormGroup>
                             </Form>
                         </CardBody>
-                        </Card>
+            </Card>
+            <Button onClick={handleClick}>Login</Button>
                     </Col>
                 </Row>
             </Container>

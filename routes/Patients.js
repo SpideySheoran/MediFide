@@ -28,7 +28,9 @@ router.route("/patient/:emailid").get((req, res) => {
 router.route("/cancel/:emailid").post((req, res) => {
   Doctor.findOneAndUpdate(
     { "personal.name": req.body.doctor, "appointments.date": req.body.date },
-    { $pull: { "appointments.$.slots": { slot: req.body.time } } }
+    { $pull: { "appointments.$.slots": { slot: req.body.time } } }, (err,doc)=>{
+      console.log(err, doc);
+    }
   );
   User.findOneAndUpdate(
     { email: req.params.emailid },

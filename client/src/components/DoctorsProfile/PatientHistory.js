@@ -5,7 +5,7 @@ import { Container, Row, Col, Card, CardBody } from 'reactstrap';
 import Navbarr from "./Navbar.js"
 
 const History = (props) => {
-  const [doctors, setDoctors] = useState([]);
+  const [data, setData] = useState([]);
 
   return (
     <React.Fragment>
