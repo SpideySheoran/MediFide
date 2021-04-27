@@ -15,10 +15,10 @@ const Login = (props) => {
 
   return (
     <React.Fragment>
-      <Container >
+      <Container>
                 <Row>
                     <Col sm={{ size: 6, offset: 3 }}>
-                        <Card className="shadow rounded-0 mt-5" >
+                        <Card className="rounded-0 mt-5" >
                         <CardTitle className="ml-5 mt-3">Admin Login</CardTitle>
                         <CardBody>
                             <Form>
@@ -27,10 +27,9 @@ const Login = (props) => {
                                 <Input value={pass} onChange={(e)=>setPass(e.target.value)} type="password" name="password" id="examplePassword" placeholder="******" />
                             </FormGroup>
                             </Form>
-                            <Button onClick={handleClick}>Login</Button>
                         </CardBody>
             </Card>
-            
+            <Button onClick={handleClick}>Login</Button>
                     </Col>
                 </Row>
             </Container>

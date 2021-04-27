@@ -52,8 +52,11 @@ const PatientSchema = new Schema(
 			type:String,
 		},
 		"history": [
-			{	"date": {
-					type: Date
+			{	"doctor": {
+					type:String
+				},
+				"date": {
+					type: String
 				},
 				"pAilment": {
 					type: String

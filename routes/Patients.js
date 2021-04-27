@@ -24,7 +24,8 @@ router.route("/patient/:emailid").get((req, res) => {
     return res.json(doc);
   });
 });
-router.route("/:emailid").get((req, res) => {
+
+router.route("/history/:emailid").get((req, res) => {
   User.findOne({ email: req.params.emailid }, (err, doc) => {
     return res.json(doc.history);
   });
@@ -53,6 +54,7 @@ router.route("/cancel/:emailid").post((req, res) => {
 });
 
 router.route("/prescription/:id").post(async (req, res) => {
+  const doctor = req.body.doctor;
   const date = req.body.date;
   const pAilment = req.body.pAilment;
   const sAilment = req.body.sAilment;
@@ -67,7 +69,7 @@ router.route("/prescription/:id").post(async (req, res) => {
       _id: req.params.id
     },
     {
-      $push: { "history": { date: date, pAilment: pAilment, sAilment: sAilment, medicine1:medicine1, medicine2:medicine2, medicine3:medicine3, medicine4:medicine4, medicine5:medicine5 } },
+      $push: { "history": { doctor: doctor, date: date, pAilment: pAilment, sAilment: sAilment, medicine1:medicine1, medicine2:medicine2, medicine3:medicine3, medicine4:medicine4, medicine5:medicine5 } },
     },
     async (err, doc) => {
       console.log(doc);

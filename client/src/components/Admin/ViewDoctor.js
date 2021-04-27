@@ -1,6 +1,7 @@
 import React, { Component, useState, useEffect } from 'react';
 import {
-     Button, Col
+    Card, CardImg, CardText, CardBody,
+    CardTitle, Button, Col
   } from 'reactstrap';
 import axios from "axios"
 import Navbarr from "./Navbar.js"

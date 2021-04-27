@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { Button, Form, FormGroup, Label, Input, Card, CardBody } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, FormText, Card, CardBody } from 'reactstrap';
 import { Container, Row, Col } from 'reactstrap';
 import Footer from "./FooterComponent.js"
 import Navbarr from './Navbar'
@@ -10,11 +10,10 @@ const Prescription = (props) => {
 
     const {id} = useParams();
     const [inputFields, setInputFields] = useState({date: "", doctor: "", time:"", pAilment:"", sAilment:"", medicine1: "", medicine2:"", medicine3: "", medicine4:"", medicine5:""});
-    console.log(id);
+
     useEffect(() => {
-        axios.get("/users/"+id).then(response => {
-            console.log(response);
-            setInputFields({date: response.data.appointment.date, doctor: response.data.appointment.doctor, time:response.data.appointment.time});
+        axios.get("/users/" + id).then(res => {
+            setInputFields({date: res.data.appointment.date, doctor: res.data.appointment.doctor, time:res.data.appointment.time});
         })
     }, [])
 
@@ -63,7 +62,7 @@ const Prescription = (props) => {
                                     <Input onChange={handleChange} type="medicine" name="medicine5" id="medicine5" placeholder="" value={inputFields.medicine5}/>
                                 </FormGroup>
                                 
-                                <Button color="info" onClick={handleClick}>Submit</Button>
+                                <a href = "/Schedule"><Button color="info" onClick={handleClick}>Submit</Button></a>
                                 </Form>
                             </CardBody>
                         </Card>

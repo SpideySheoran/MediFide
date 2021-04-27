@@ -11,7 +11,7 @@ import {
   Container
 } from "reactstrap";
 // Don't Touch
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 function Doctor(doctor, key) {
     const history = useHistory();

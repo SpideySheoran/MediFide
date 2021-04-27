@@ -1,6 +1,6 @@
 //
-import React, { useState, useEffect } from 'react';
-import { Button } from "reactstrap"
+import React, { Component, useState, useEffect } from 'react';
+import { Navbar, NavbarBrand, Button } from "reactstrap"
 import {
     Table
 
@@ -12,6 +12,7 @@ import Navbarr from "./DoctorsProfile/Navbar"
 import { useHistory } from "react-router-dom";
 
 
+
 const Schedule = (props) => {
     const [currentUser, setCurrentUser] = useState({ email: "" });
     const [state, setState] = useState({ time: "" }); 
@@ -19,6 +20,7 @@ const Schedule = (props) => {
     const [email, setEmail] = useState("");
     const [data, setData] = useState([]);
     const history = useHistory();
+
     useEffect(() => {
         let emailid=currentUser.email;
         axios.get("/api/current_user")
@@ -51,8 +53,8 @@ const Schedule = (props) => {
       };
 
       const handleClick = (id) => {
-          history.push("/Prescription/"+ id);
-      }
+        history.push("/Prescription/"+ id);
+    }
 
     return (
         
