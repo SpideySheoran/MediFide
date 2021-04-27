@@ -37,10 +37,10 @@ const History = (props) => {
                               <CardBody>
                                 {d.doctor}<br/>
                                 {d.date}<br/>
-                                <h5>Diagnosed with</h5>
+                                <p>Diagnosed with</p>
                                 {d.pAilment}<br/>
                                 {d.sAilment}<br/>
-                                <h5>Rx</h5>
+                                <h6>Rx</h6>
                                 {d.medicine1}<br/>
                                 {d.medicine2}<br/>
                                 {d.medicine3}<br/>

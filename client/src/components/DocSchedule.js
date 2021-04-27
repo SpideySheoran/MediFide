@@ -52,8 +52,8 @@ const Schedule = (props) => {
         Sched.removeAttribute("hidden");
       };
 
-      const handleClick = (id) => {
-        history.push("/Prescription/"+ id);
+    const handleClickView = (id) => {
+        history.push("/History/"+ id);
     }
 
     return (
@@ -119,7 +119,7 @@ const Schedule = (props) => {
                                             <th scope="row">{index + 1}</th>
                                             <td>{d.slot}</td>
                                             <td>{d.name}</td>
-                                            <th><Button onClick = {()=> handleClick(d.id)} color="secondary">Write Prescription</Button></th>
+                                            <th><Button onClick = {()=> handleClickView(d.id)} color="secondary">View History</Button></th>
                                         </tr>)}
                                 </tbody>
                                 </Table>

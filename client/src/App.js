@@ -13,6 +13,7 @@ import LoginComponent from "./components/Admin/LoginComponent"
 import ViewDoc from "./components/Admin/ViewDoctor"
 import Schedule from "./components/DocSchedule"
 import Prescription from "./components/DoctorsProfile/Prescription"
+import HistoryDoc from "./components/DoctorsProfile/PatientHistoryDoctor"
 
 class App extends Component {
 	state = {
@@ -56,6 +57,7 @@ class App extends Component {
 							<Route path="/admin/add" component={AddDoc}/>
 							<Route path="/admin/view" component={ViewDoc}/>
 							<Route path="/Schedule" component={Schedule}/>
+							<Route path="/History/:id" component={HistoryDoc}/>
 							<Route path="/Prescription/:id" component={Prescription}/>
 						</div>
 					)}
