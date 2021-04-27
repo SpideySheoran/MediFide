@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Footer from "./FooterComponent";
 import axios from "axios";
 import { Container, Row, Col, Button, Card, CardBody } from 'reactstrap';
-import Navbarr from "./NavbarComponent"
+import Navbarr from "./Navbar"
 import { useParams, useHistory } from "react-router-dom";
 
 const History = (props) => {
