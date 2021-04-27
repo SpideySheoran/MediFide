@@ -12,6 +12,7 @@ import AddDoc from "./components/Admin/AddDoctor"
 import LoginComponent from "./components/Admin/LoginComponent"
 import ViewDoc from "./components/Admin/ViewDoctor"
 import Schedule from "./components/DocSchedule"
+import Prescription from "./components/DoctorsProfile/Prescription"
 
 class App extends Component {
 	state = {
@@ -46,15 +47,16 @@ class App extends Component {
 							<Route path="/BAApp" component={DocProfiles} />
 							<Route path="/docProfile/:id" component={DoctoProfile} />
 							<Route path="/Details" component={UserDetails} />
-							<Route path="/Schedule" component={Schedule} />
 							<Route path="/History" component={PatientHistory}/>
-							<Route path="/admin/login" component={LoginComponent}/>
-							<Route path="/admin/add" component={AddDoc}/>
-							<Route path="/admin/view" component={ViewDoc}/>
 						</div>
 					) : (
 						<div>
-							<Route exact path="/" component={Login} />
+							<Route exact path="/" component={Login}/>
+							<Route path="/admin/login" component={LoginComponent}/>
+							<Route path="/admin/add" component={AddDoc}/>
+							<Route path="/admin/view" component={ViewDoc}/>
+							<Route path="/Schedule" component={Schedule}/>
+							<Route path="/Prescription/:id" component={Prescription}/>
 						</div>
 					)}
 				</BrowserRouter>

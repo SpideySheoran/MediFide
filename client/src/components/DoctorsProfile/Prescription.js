@@ -1,12 +1,36 @@
 import React, {useEffect, useState} from 'react';
-import { Button, Form, FormGroup, Label, Input, FormText, Card, CardBody } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, Card, CardBody } from 'reactstrap';
 import { Container, Row, Col } from 'reactstrap';
 import Footer from "./FooterComponent.js"
-import Navbarr from '../NavbarComponent'
-
+import Navbarr from './Navbar'
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
 const Prescription = (props) => {
+
+    const {id} = useParams();
+    const [inputFields, setInputFields] = useState({date: "", doctor: "", time:"", pAilment:"", sAilment:"", medicine1: "", medicine2:"", medicine3: "", medicine4:"", medicine5:""});
+    console.log(id);
+    useEffect(() => {
+        axios.get("/users/"+id).then(response => {
+            console.log(response);
+            setInputFields({date: response.data.appointment.date, doctor: response.data.appointment.doctor, time:response.data.appointment.time});
+        })
+    }, [])
+
+    const handleChange = (event) => {
+        console.log(event.target.name);
+        setInputFields((values) => ({
+          ...values,
+          [event.target.name]: event.target.value || event.target.checked,
+        }));
+    };
+
+    const handleClick = () => {
+        axios.post("/users/prescription/"+id, inputFields).then(response => {
+            console.log(response);
+        })
+    }
    
   return (
         <React.Fragment>
@@ -19,27 +43,27 @@ const Prescription = (props) => {
                                 <h2>Patient's Prescription</h2>
                                 <Form>
                                 <FormGroup>
-                                    <Label for="exampleEmail">Date</Label>
-                                    <Input type="email" name="email" id="exampleEmail" placeholder="DD/MM/YYYY" />
+                                    <Label for="exampleDate">Date</Label>
+                                    <Input type="text" name="date" id="exampleDate" placeholder="DD/MM/YYYY" value={inputFields.date}/>
                                 </FormGroup>
                                 <FormGroup>
-                                    <Label for="examplePassword">Primary Ailment</Label>
-                                    <Input type="password" name="password" id="examplePassword" placeholder="" />
+                                    <Label for="exampleAilment">Primary Ailment</Label>
+                                    <Input onChange={handleChange} type="text" name="pAilment" id="exampleAilment" placeholder="" value={inputFields.pAilment}/>
                                 </FormGroup>
                                 <FormGroup>
-                                    <Label for="examplePassword">Secondary Ailments</Label>
-                                    <Input type="password" name="password" id="examplePassword" placeholder="" />
+                                    <Label for="exampleSAilment">Secondary Ailments</Label>
+                                    <Input onChange={handleChange} type="text" name="sAilment" id="exampleSAilment" placeholder="" value={inputFields.sAilment}/>
                                 </FormGroup>
                                 <FormGroup>
                                     <Label for="exampleSelect">Medicines Rx</Label>
-                                    <Input type="medicine" name="medicine1" id="medicine1" placeholder="" />
-                                    <Input type="medicine" name="medicine2" id="medicine2" placeholder="" />
-                                    <Input type="medicine" name="medicine3" id="medicine3" placeholder="" />
-                                    <Input type="medicine" name="medicine4" id="medicine4" placeholder="" />
-                                    <Input type="medicine" name="medicine5" id="medicine5" placeholder="" />
+                                    <Input onChange={handleChange} type="medicine" name="medicine1" id="medicine1" placeholder="" value={inputFields.medicine1}/>
+                                    <Input onChange={handleChange} type="medicine" name="medicine2" id="medicine2" placeholder="" value={inputFields.medicine2}/>
+                                    <Input onChange={handleChange} type="medicine" name="medicine3" id="medicine3" placeholder="" value={inputFields.medicine3}/>
+                                    <Input onChange={handleChange} type="medicine" name="medicine4" id="medicine4" placeholder="" value={inputFields.medicine4}/>
+                                    <Input onChange={handleChange} type="medicine" name="medicine5" id="medicine5" placeholder="" value={inputFields.medicine5}/>
                                 </FormGroup>
                                 
-                                <a href="./Details"><Button color="info">Submit</Button></a>
+                                <Button color="info" onClick={handleClick}>Submit</Button>
                                 </Form>
                             </CardBody>
                         </Card>

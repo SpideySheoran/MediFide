@@ -48,6 +48,9 @@ const DoctorSchema = new Schema(
             },
             "slot": {
               type: String,
+            },
+            "id":{
+              type: String,
             }
           },
         ]

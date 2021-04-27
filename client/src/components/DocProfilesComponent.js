@@ -3,7 +3,7 @@ import Footer from "./FooterComponent";
 import axios from "axios";
 import Doctor from "./DoctorsProfile/Doctor";
 import Navbarr from "./NavbarComponent";
-import { Container, Row, Col, Card, CardBody } from "reactstrap";
+import { Container, Row, Col, Card } from "reactstrap";
 
 const DocProfiles = (props) => {
   const [doctors, setDoctors] = useState([]);

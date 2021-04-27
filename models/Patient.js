@@ -55,7 +55,25 @@ const PatientSchema = new Schema(
 			{	"date": {
 					type: Date
 				},
-				"prescription": {
+				"pAilment": {
+					type: String
+				},
+				"sAilment": {
+					type: String
+				},
+				"medicine1": {
+					type: String
+				},
+				"medicine2": {
+					type: String
+				},
+				"medicine3": {
+					type: String
+				},
+				"medicine4": {
+					type: String
+				},
+				"medicine5": {
 					type: String
 				}
 			}

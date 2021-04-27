@@ -1,7 +1,7 @@
 import React from "react";
 import {
-    Card, CardImg, CardText, CardBody,
-    CardTitle, Button, Col
+    Card, CardImg, CardBody,
+    CardTitle, Button
   } from 'reactstrap';
 import axios from 'axios';
 

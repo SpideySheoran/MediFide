@@ -140,7 +140,7 @@ router.route("/appointment/:id").post(async (req, res) => {
       "appointments.slots.slot": { $nin: [slot] },
     },
     {
-      $push: { "appointments.$.slots": { slot: slot, name:patient.name } },
+      $push: { "appointments.$.slots": { slot: slot, name:patient.name, id:patient._id } },
     },
     async (err, doc) => {
       console.log(doc);

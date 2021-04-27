@@ -1,10 +1,6 @@
 //
-import React, { Component, useState, useEffect } from 'react';
-import { Navbar, NavbarBrand, Button } from "reactstrap"
-//=======
-//import React, { useState, useEffect } from 'react';
-//import { Button } from "reactstrap"
-//>>>>>>> 5fedc29a1e7efb4b8bc050af02253eb91f21e400
+import React, { useState, useEffect } from 'react';
+import { Button } from "reactstrap"
 import {
     Table
 
@@ -13,7 +9,7 @@ import {
 import Footer from './FooterComponent';
 import axios from 'axios';
 import Navbarr from "./DoctorsProfile/Navbar"
-
+import { useHistory } from "react-router-dom";
 
 
 const Schedule = (props) => {
@@ -22,7 +18,7 @@ const Schedule = (props) => {
     const [date, setDate] = useState("");
     const [email, setEmail] = useState("");
     const [data, setData] = useState([]);
-
+    const history = useHistory();
     useEffect(() => {
         let emailid=currentUser.email;
         axios.get("/api/current_user")
@@ -53,6 +49,10 @@ const Schedule = (props) => {
         let Sched = document.getElementById("Sched");
         Sched.removeAttribute("hidden");
       };
+
+      const handleClick = (id) => {
+          history.push("/Prescription/"+ id);
+      }
 
     return (
         
@@ -117,7 +117,7 @@ const Schedule = (props) => {
                                             <th scope="row">{index + 1}</th>
                                             <td>{d.slot}</td>
                                             <td>{d.name}</td>
-                                            <th><a href="/"><Button color="secondary">View</Button></a></th>
+                                            <th><Button onClick = {()=> handleClick(d.id)} color="secondary">View</Button></th>
                                         </tr>)}
                                 </tbody>
                                 </Table>

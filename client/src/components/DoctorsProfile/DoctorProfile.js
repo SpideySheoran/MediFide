@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Footer from "../FooterComponent";
 import axios from "axios";
 import { Container, Row, Col, Card, CardTitle, CardBody, CardImg } from 'reactstrap';
-import { useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Navbarr from "./Navbar.js"
 function DoctorProfile() {
   const [currentUser, setCurrentUser] = useState({ email: "" });
