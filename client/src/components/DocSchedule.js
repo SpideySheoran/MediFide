@@ -117,7 +117,7 @@ const Schedule = (props) => {
                                             <th scope="row">{index + 1}</th>
                                             <td>{d.slot}</td>
                                             <td>{d.name}</td>
-                                            <th><Button onClick = {()=> handleClick(d.id)} color="secondary">View</Button></th>
+                                            <th><Button onClick = {()=> handleClick(d.id)} color="secondary">Write Prescription</Button></th>
                                         </tr>)}
                                 </tbody>
                                 </Table>
