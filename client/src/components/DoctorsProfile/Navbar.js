@@ -12,7 +12,7 @@ const Navbarr = (props) => {
 										</NavbarBrand>
 									</div>
 									
-									<a href="/api/logout"><Button color="secondary">Logout</Button></a>
+									<a href="/api/logout"><Button className="rounded-0" color="secondary">Logout</Button></a>
 								</div>
 							</Navbar>
 

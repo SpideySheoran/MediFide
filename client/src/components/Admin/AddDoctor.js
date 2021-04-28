@@ -25,8 +25,12 @@ const AddDoc = (props) => {
       <React.Fragment>
           <Navbarr />
     <div className="container mt-5">
-        <Card className="shadow-lg" style={{backgroundColor: '#f0afaf'}}> 
-        <CardTitle className="mt-5 ml-5"><h1>Add a new Doctor</h1></CardTitle>
+        <Card className="shadow-lg rounded-0" style={{backgroundColor: '#f0afaf'}}> 
+        <CardTitle className="mt-5 ">
+            <div className="text-center">
+                <h1>Add a new Doctor</h1>
+            </div>
+        </CardTitle>
         <CardBody>
           <Form >
               
@@ -34,7 +38,7 @@ const AddDoc = (props) => {
             <Col md={6}>
             <FormGroup>
                 <Label for="DocName">Doctor's Name</Label>
-                <Input onChange={handleChange} type="text" value={inputFields.name} name="name" id="exampleName" placeholder="Name " />
+                <Input className="rounded-0" onChange={handleChange} type="text" value={inputFields.name} name="name" id="exampleName" placeholder="Name " />
             </FormGroup>
             </Col>
         </Row>
@@ -42,13 +46,13 @@ const AddDoc = (props) => {
             <Col md={6}>
             <FormGroup>
                 <Label for="exampleGender">Gender</Label>
-                <Input onChange={handleChange} type="text" value={inputFields.gender} name="gender" id="exampleGender" placeholder="M/F" />
+                <Input className="rounded-0" onChange={handleChange} type="text" value={inputFields.gender} name="gender" id="exampleGender" placeholder="M/F" />
             </FormGroup>
             </Col>
             <Col md={6}>
             <FormGroup>
                 <Label for="exampleEmail">Email ID</Label>
-                <Input onChange={handleChange} type="text" value={inputFields.email} name="email" id="exampleEmail" placeholder="abc@xyz.com" />
+                <Input className="rounded-0" onChange={handleChange} type="text" value={inputFields.email} name="email" id="exampleEmail" placeholder="abc@xyz.com" />
             </FormGroup>
             </Col>
         </Row>
@@ -56,34 +60,34 @@ const AddDoc = (props) => {
             <Col md={6}>
             <FormGroup>
                 <Label for="examplePhone">Contact Number</Label>
-                <Input onChange={handleChange} type="text" value={inputFields.phone} name="phone" id="examplePhone" placeholder="94XXXXXXXX" />
+                <Input className="rounded-0" onChange={handleChange} type="text" value={inputFields.phone} name="phone" id="examplePhone" placeholder="94XXXXXXXX" />
             </FormGroup>
             </Col>
             <Col md={6}>
             <FormGroup>
                 <Label for="exampleDob">Date of Birth</Label>
-                <Input onChange={handleChange} type="text" value={inputFields.dob} name="dob" id="exampleDob" placeholder="DD/MM/YYYY" />
+                <Input className="rounded-0" onChange={handleChange} type="text" value={inputFields.dob} name="dob" id="exampleDob" placeholder="DD/MM/YYYY" />
             </FormGroup>
             </Col>
         </Row>
         <FormGroup>
             <Label for="exampleQualification">Qualification</Label>
-            <Input onChange={handleChange} type="text" value={inputFields.qualification} name="qualification" id="exampleQualification" placeholder="Qualification"/>
+            <Input className="rounded-0" onChange={handleChange} type="text" value={inputFields.qualification} name="qualification" id="exampleQualification" placeholder="Qualification"/>
         </FormGroup>
         <FormGroup>
             <Label for="exampleCollege">College</Label>
-            <Input onChange={handleChange} type="text" value={inputFields.college} name="college" id="exampleCollege" placeholder="College"/>
+            <Input className="rounded-0" onChange={handleChange} type="text" value={inputFields.college} name="college" id="exampleCollege" placeholder="College"/>
         </FormGroup>
         <FormGroup>
             <Label for="examplePhoto">Photo</Label>
-            <Input onChange={handleChange} type="text" value={inputFields.photo} name="photo" id="examplePhoto" placeholder="Image URL"/>
+            <Input className="rounded-0" onChange={handleChange} type="text" value={inputFields.photo} name="photo" id="examplePhoto" placeholder="Image URL"/>
         </FormGroup>
         
         <FormGroup check>
             
         </FormGroup>
         <a href = "./view">
-            <Button onClick={handleClick} id = "updatebutton" className="mt-3" color="primary">Add Doctor</Button>
+            <Button onClick={handleClick} id = "updatebutton" className="mt-3 rounded-0 shadow" color="primary">Add Doctor</Button>
         </a>    
         </Form>
         </CardBody>

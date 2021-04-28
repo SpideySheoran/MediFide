@@ -76,7 +76,7 @@ const Schedule = (props) => {
                                                 *
                                             </span>
                                             </label>
-                                            <input type="text" value={email} onChange={(e)=>setEmail(e.target.value)} />
+                                            <input className type="text" value={email} onChange={(e)=>setEmail(e.target.value)} />
                                             </div>
                                         <div class="form-group ">
                                             <label class="control-label col-sm-2 requiredField" for="date">
@@ -97,7 +97,7 @@ const Schedule = (props) => {
                                             </div>
                                              
                                         </div>
-                                        <Button onClick={handleClickAvail} className="mt-1" color="secondary">Go</Button>
+                                        <Button onClick={handleClickAvail} className="mt-1 rounded-0 shadow" color="secondary">Go</Button>
                                         </form>
                                     </div>
                                 </div>

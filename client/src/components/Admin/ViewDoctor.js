@@ -21,7 +21,7 @@ function ViewDoc(props) {
           <div className="container shadow-lg mt-3">
               <div className="row">
                   <Col sm={{ size: 4, offset: 5 }}>
-                    <a href="./add"><Button  className="rounded-0 ml-5 mt-5 mb-5 shadow" style={{backgroundColor: '#ff4040'}}>Add a new Doctor</Button></a>
+                    <a href="./add"><Button  className="rounded-0 ml-5 mt-5 mb-5 shadow" color="danger" >Add a new Doctor</Button></a>
               </Col>
               </div>
               <div className="row">

@@ -63,7 +63,7 @@ const Appointment = (props) => {
 
           <Button
             onClick={handleClick}
-            className="font-weight-bold"
+            className="rounded-0 font-weight-bold"
             color="warning"
             size="lg"
             block

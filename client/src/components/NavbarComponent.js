@@ -25,9 +25,9 @@ const Navbarr = (props) => {
 										</NavbarBrand>
 									</div>
 									<h2>{ state.current_user.name}</h2>
-									<a href="./Details"><Button color="info">Update details</Button></a>
-									<a href="./History"><Button color="info">Medical history</Button></a>
-									<a href="/api/logout"><Button color="secondary">Logout</Button></a>
+									<a href="./Details"><Button className="rounded-0" color="info">Update details</Button></a>
+									<a href="./History"><Button className="rounded-0" color="info">Medical history</Button></a>
+									<a href="/api/logout"><Button className="rounded-0" color="secondary">Logout</Button></a>
 								</div>
 							</Navbar>
 

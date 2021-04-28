@@ -19,7 +19,7 @@ function Doctor(doctor) {
         <CardBody>
           <CardTitle tag="h3">{doctor.doctor.personal.name}</CardTitle>
           <a href="./view">
-            <Button onClick={handleClick} className="font-weight-bold" color="info" size="lg" block>
+            <Button onClick={handleClick} className="font-weight-bold rounded-0 shadow-sm" color="info" size="lg" block>
               Remove
             </Button>
           </a>

@@ -148,7 +148,7 @@ function DoctorProfile() {
               <div class="col-sm-10 col-sm-offset-2">
                 <button
                   onClick={handleClickAvail}
-                  class="btn btn-danger "
+                  class="btn btn-danger rounded-0 shadow"
                   name="submit"
                   type="submit"
                 >
@@ -171,7 +171,7 @@ function DoctorProfile() {
                   <a href="/">
                     <button
                       onClick={handleClickBook}
-                      class="btn btn-danger "
+                      class="btn btn-danger rounded-0 shadow"
                       name="submit"
                       type="submit"
                     >

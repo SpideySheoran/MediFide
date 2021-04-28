@@ -19,7 +19,11 @@ const Login = (props) => {
                 <Row>
                     <Col sm={{ size: 6, offset: 3 }}>
                         <Card className="rounded-0 mt-5" >
-                        <CardTitle className="ml-5 mt-3">Admin Login</CardTitle>
+                        <CardTitle className=" mt-5">
+                          <div className="text-center">
+                            <h3>Admin Login</h3>
+                          </div>
+                        </CardTitle>
                         <CardBody>
                             <Form>
                             <FormGroup>
@@ -27,9 +31,10 @@ const Login = (props) => {
                                 <Input value={pass} onChange={(e)=>setPass(e.target.value)} type="password" name="password" id="examplePassword" placeholder="******" />
                             </FormGroup>
                             </Form>
+                            <Button className="rounded-0 shadow-sm" onClick={handleClick}>Login</Button>
                         </CardBody>
             </Card>
-            <Button onClick={handleClick}>Login</Button>
+            
                     </Col>
                 </Row>
             </Container>

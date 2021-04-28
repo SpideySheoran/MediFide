@@ -69,8 +69,10 @@ const UserDetails = (props) => {
                 <Row>
                     <Col sm={{ size: 6, offset: 3 }}>
                         <Card className="mt-5 shadow-lg p-3 mb-5 rounded-0" style={{backgroundColor: '#ffaba6'}} >
-                            <CardTitle className="mt-3">
+                            <CardTitle className="mt-3 ">
+                            <div className="text-center">
                                 <h2>Update Your Deatils</h2>
+                            </div>
                             </CardTitle>
                                 <CardBody>
                                 <Form>
@@ -80,13 +82,13 @@ const UserDetails = (props) => {
                                     <Col md={6}>
                                     <FormGroup>
                                         <Label for="exampleHeight">Height</Label>
-                                        <Input onChange={handleChange} type="text" value={inputFields.height} name="height" id="exampleHeight" placeholder="ft/cm" />
+                                        <Input className="rounded-0" onChange={handleChange} type="text" value={inputFields.height} name="height" id="exampleHeight" placeholder="ft/cm" />
                                     </FormGroup>
                                     </Col>
                                     <Col md={6}>
                                     <FormGroup>
                                         <Label for="exampleWeight">Weight</Label>
-                                        <Input onChange={handleChange} type="text" value={inputFields.weight} name="weight" id="exampleWeight" placeholder="Kg/lb" />
+                                        <Input className="rounded-0" onChange={handleChange} type="text" value={inputFields.weight} name="weight" id="exampleWeight" placeholder="Kg/lb" />
                                     </FormGroup>
                                     </Col>
                                 </Row>
@@ -94,46 +96,46 @@ const UserDetails = (props) => {
                                     <Col md={6}>
                                     <FormGroup>
                                         <Label for="exampleNumber">Contact number</Label>
-                                        <Input onChange={handleChange} type="text" value={inputFields.number} name="number" id="exampleNumber" placeholder="94XXXXXXXX" />
+                                        <Input className="rounded-0" onChange={handleChange} type="text" value={inputFields.number} name="number" id="exampleNumber" placeholder="94XXXXXXXX" />
                                     </FormGroup>
                                     </Col>
                                     <Col md={6}>
                                     <FormGroup>
                                         <Label for="exampleANumber">Aternate Contact Number</Label>
-                                        <Input onChange={handleChange} type="text" value={inputFields.anumber} name="anumber" id="exampleANumber" placeholder="94XXXXXXXX" />
+                                        <Input className="rounded-0" onChange={handleChange} type="text" value={inputFields.anumber} name="anumber" id="exampleANumber" placeholder="94XXXXXXXX" />
                                     </FormGroup>
                                     </Col>
                                 </Row>
                                 <FormGroup>
                                     <Label for="exampleAddress">Address</Label>
-                                    <Input onChange={handleChange} type="text" value={inputFields.address1} name="address1" id="exampleAddress" placeholder="1234 Main St"/>
+                                    <Input className="rounded-0" onChange={handleChange} type="text" value={inputFields.address1} name="address1" id="exampleAddress" placeholder="1234 Main St"/>
                                 </FormGroup>
                                 <FormGroup>
                                     <Label for="exampleAddress2">Address 2</Label>
-                                    <Input onChange={handleChange} type="text" value={inputFields.address2} name="address2" id="exampleAddress2" placeholder="Apartment, studio, or floor"/>
+                                    <Input className="rounded-0" onChange={handleChange} type="text" value={inputFields.address2} name="address2" id="exampleAddress2" placeholder="Apartment, studio, or floor"/>
                                 </FormGroup>
                                 <Row form>
                                     <Col md={6}>
                                     <FormGroup>
                                         <Label for="exampleCity">City</Label>
-                                        <Input onChange={handleChange} type="text" value={inputFields.city} name="city" id="exampleCity"/>
+                                        <Input className="rounded-0" onChange={handleChange} type="text" value={inputFields.city} name="city" id="exampleCity"/>
                                     </FormGroup>
                                     </Col>
                                     <Col md={4}>
                                     <FormGroup>
                                         <Label for="exampleState">State</Label>
-                                        <Input onChange={handleChange} type="text" value={inputFields.state} name="state" id="exampleState"/>
+                                        <Input className="rounded-0" onChange={handleChange} type="text" value={inputFields.state} name="state" id="exampleState"/>
                                     </FormGroup>
                                     </Col>
                                     <Col md={2}>
                                     <FormGroup>
                                         <Label for="exampleZip">Zip</Label>
-                                        <Input onChange={handleChange} type="text" value={inputFields.zip} name="zip" id="exampleZip"/>
+                                        <Input className="rounded-0" onChange={handleChange} type="text" value={inputFields.zip} name="zip" id="exampleZip"/>
                                     </FormGroup>  
                                     </Col>
                                 </Row>
                                 
-                                <Button onClick={handleClick} id = "updatebutton" className="mt-3" color="primary">Update</Button>
+                                <Button onClick={handleClick} id = "updatebutton" className="mt-3 rounded-0" color="danger">Update</Button>
                                 </Form>
                             </CardBody>
                         </Card>
